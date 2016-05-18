@@ -1,0 +1,340 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10517,        330]
+NotebookOptionsPosition[      9868,        302]
+NotebookOutlinePosition[     10204,        317]
+CellTagsIndexPosition[     10161,        314]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Expand", "[", 
+  RowBox[{
+   RowBox[{"G11", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["P11", "2"], "+", 
+      SuperscriptBox["P22", "2"], "+", 
+      SuperscriptBox["P33", "2"]}], ")"}]}], "+", " ", 
+   RowBox[{"G12", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"P11", " ", "P22"}], " ", "+", " ", 
+      RowBox[{"P22", " ", "P33"}], " ", "+", " ", 
+      RowBox[{"P11", " ", "P33"}]}], ")"}]}], "+", 
+   RowBox[{"G44", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"P12", "+", "P21"}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"P23", " ", "+", " ", "P32"}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"P13", " ", "+", " ", "P31"}], ")"}], "2"]}], ")"}]}], "+", 
+   RowBox[{"G44p", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"P12", "-", "P21"}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"P23", "-", "P32"}], ")"}], "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"P13", "-", "P31"}], ")"}], "2"]}], ")"}]}]}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.659560001076537*^9, 3.659560138574888*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"G11", " ", 
+   SuperscriptBox["P11", "2"]}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P12", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P12", "2"]}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P13", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P13", "2"]}], "+", 
+  RowBox[{"2", " ", "G44", " ", "P12", " ", "P21"}], "-", 
+  RowBox[{"2", " ", "G44p", " ", "P12", " ", "P21"}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P21", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P21", "2"]}], "+", 
+  RowBox[{"G12", " ", "P11", " ", "P22"}], "+", 
+  RowBox[{"G11", " ", 
+   SuperscriptBox["P22", "2"]}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P23", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P23", "2"]}], "+", 
+  RowBox[{"2", " ", "G44", " ", "P13", " ", "P31"}], "-", 
+  RowBox[{"2", " ", "G44p", " ", "P13", " ", "P31"}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P31", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P31", "2"]}], "+", 
+  RowBox[{"2", " ", "G44", " ", "P23", " ", "P32"}], "-", 
+  RowBox[{"2", " ", "G44p", " ", "P23", " ", "P32"}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P32", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P32", "2"]}], "+", 
+  RowBox[{"G12", " ", "P11", " ", "P33"}], "+", 
+  RowBox[{"G12", " ", "P22", " ", "P33"}], "+", 
+  RowBox[{"G11", " ", 
+   SuperscriptBox["P33", "2"]}]}]], "Output",
+ CellChangeTimes->{{3.659560133657844*^9, 3.6595601388796883`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Expand", "[", 
+  RowBox[{"k", 
+   RowBox[{"(", 
+    RowBox[{
+     SuperscriptBox["P11", "2"], "+", 
+     RowBox[{"P11", " ", "P12"}], " ", "+", 
+     RowBox[{"P11", " ", "P13"}], " ", "+", " ", 
+     RowBox[{"P12", " ", "P13"}], " ", "+", " ", 
+     SuperscriptBox["P12", "2"], "+", 
+     SuperscriptBox["P13", "2"], "+", 
+     SuperscriptBox["P21", "2"], "+", 
+     RowBox[{"P21", " ", "P22"}], " ", "+", " ", 
+     RowBox[{"P21", " ", "P23"}], " ", "+", " ", 
+     RowBox[{"P22", " ", "P23"}], " ", "+", " ", 
+     SuperscriptBox["P22", "2"], "+", 
+     SuperscriptBox["P23", "2"], "+", 
+     SuperscriptBox["P31", "2"], "+", 
+     RowBox[{"P31", " ", "P32"}], " ", "+", " ", 
+     RowBox[{"P31", " ", "P33"}], " ", "+", " ", 
+     RowBox[{"P32", " ", "P33"}], " ", "+", " ", 
+     SuperscriptBox["P32", "2"], "+", 
+     SuperscriptBox["P33", "2"]}], ")"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.659560148199128*^9, 3.659560205383182*^9}, {
+  3.659560359331191*^9, 3.659560464585655*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k", " ", 
+   SuperscriptBox["P11", "2"]}], "+", 
+  RowBox[{"k", " ", "P11", " ", "P12"}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P12", "2"]}], "+", 
+  RowBox[{"k", " ", "P11", " ", "P13"}], "+", 
+  RowBox[{"k", " ", "P12", " ", "P13"}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P13", "2"]}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P21", "2"]}], "+", 
+  RowBox[{"k", " ", "P21", " ", "P22"}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P22", "2"]}], "+", 
+  RowBox[{"k", " ", "P21", " ", "P23"}], "+", 
+  RowBox[{"k", " ", "P22", " ", "P23"}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P23", "2"]}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P31", "2"]}], "+", 
+  RowBox[{"k", " ", "P31", " ", "P32"}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P32", "2"]}], "+", 
+  RowBox[{"k", " ", "P31", " ", "P33"}], "+", 
+  RowBox[{"k", " ", "P32", " ", "P33"}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P33", "2"]}]}]], "Output",
+ CellChangeTimes->{3.6595608254600067`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Expand", "[", 
+  RowBox[{"G44p", 
+   RowBox[{"(", 
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"P12", "-", "P21"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"P23", "-", "P32"}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"P13", "-", "P31"}], ")"}], "2"]}], ")"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.659560904183544*^9, 3.659560905420224*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P12", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P13", "2"]}], "-", 
+  RowBox[{"2", " ", "G44p", " ", "P12", " ", "P21"}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P21", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P23", "2"]}], "-", 
+  RowBox[{"2", " ", "G44p", " ", "P13", " ", "P31"}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P31", "2"]}], "-", 
+  RowBox[{"2", " ", "G44p", " ", "P23", " ", "P32"}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P32", "2"]}]}]], "Output",
+ CellChangeTimes->{3.659560905799773*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Expand", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"G11", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["P11", "2"], "+", 
+       SuperscriptBox["P22", "2"], "+", 
+       SuperscriptBox["P33", "2"]}], ")"}]}], "+", " ", 
+    RowBox[{"G12", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"P11", " ", "P22"}], " ", "+", " ", 
+       RowBox[{"P22", " ", "P33"}], " ", "+", " ", 
+       RowBox[{"P11", " ", "P33"}]}], ")"}]}], "+", 
+    RowBox[{"G44", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"P12", "+", "P21"}], ")"}], "2"], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"P23", " ", "+", " ", "P32"}], ")"}], "2"], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"P13", " ", "+", " ", "P31"}], ")"}], "2"]}], ")"}]}], "+", 
+    RowBox[{"G44p", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"P12", "-", "P21"}], ")"}], "2"], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"P23", "-", "P32"}], ")"}], "2"], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"P13", "-", "P31"}], ")"}], "2"]}], ")"}]}]}], "/.", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"G11", "\[Rule]", "k"}], ",", 
+     RowBox[{"G12", "\[Rule]", "k"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.659565561673643*^9, 3.659565579776856*^9}, {
+  3.659565955982877*^9, 3.659565999137141*^9}, {3.659566035596816*^9, 
+  3.659566137928508*^9}, {3.659566324214396*^9, 3.659566324614645*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k", " ", 
+   SuperscriptBox["P11", "2"]}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P12", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P12", "2"]}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P13", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P13", "2"]}], "+", 
+  RowBox[{"2", " ", "G44", " ", "P12", " ", "P21"}], "-", 
+  RowBox[{"2", " ", "G44p", " ", "P12", " ", "P21"}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P21", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P21", "2"]}], "+", 
+  RowBox[{"k", " ", "P11", " ", "P22"}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P22", "2"]}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P23", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P23", "2"]}], "+", 
+  RowBox[{"2", " ", "G44", " ", "P13", " ", "P31"}], "-", 
+  RowBox[{"2", " ", "G44p", " ", "P13", " ", "P31"}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P31", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P31", "2"]}], "+", 
+  RowBox[{"2", " ", "G44", " ", "P23", " ", "P32"}], "-", 
+  RowBox[{"2", " ", "G44p", " ", "P23", " ", "P32"}], "+", 
+  RowBox[{"G44", " ", 
+   SuperscriptBox["P32", "2"]}], "+", 
+  RowBox[{"G44p", " ", 
+   SuperscriptBox["P32", "2"]}], "+", 
+  RowBox[{"k", " ", "P11", " ", "P33"}], "+", 
+  RowBox[{"k", " ", "P22", " ", "P33"}], "+", 
+  RowBox[{"k", " ", 
+   SuperscriptBox["P33", "2"]}]}]], "Output",
+ CellChangeTimes->{
+  3.659565580993205*^9, {3.6595659566070223`*^9, 3.659565999553709*^9}, {
+   3.659566036370826*^9, 3.65956613837379*^9}, 3.659566325283442*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{108, Automatic}, {44, Automatic}},
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1261, 40, 87, "Input"],
+Cell[1844, 64, 1538, 41, 104, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3419, 110, 1017, 24, 108, "Input"],
+Cell[4439, 136, 1037, 29, 81, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5513, 170, 463, 14, 37, "Input"],
+Cell[5979, 186, 630, 17, 58, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6646, 208, 1581, 46, 87, "Input"],
+Cell[8230, 256, 1622, 43, 104, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

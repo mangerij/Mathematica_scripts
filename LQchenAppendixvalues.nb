@@ -1,0 +1,1955 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     78606,       1946]
+NotebookOptionsPosition[     77350,       1898]
+NotebookOutlinePosition[     77709,       1914]
+CellTagsIndexPosition[     77666,       1911]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Input file syntax (PTO):", "Section",
+ CellChangeTimes->{{3.64686302073958*^9, 3.646863029138835*^9}, {
+  3.6583605465014753`*^9, 3.658360549086515*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lenS", "=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"Quantity", "[", 
+     RowBox[{
+      SqrtBox[
+       FractionBox[
+        RowBox[{"0.9", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "10"}]]}], 
+        RowBox[{"Abs", "[", 
+         RowBox[{"3.766", 
+          RowBox[{"(", 
+           RowBox[{"300", "-", "765.1"}], ")"}], 
+          SuperscriptBox["10", "5"]}], "]"}]]], ",", "\"\<Meters\>\""}], 
+     "]"}], ",", "LengthScale"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.649172863834695*^9, 3.6491728700736227`*^9}, 
+   3.649173049478901*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"0.716816390357752`","\"nm\"","nanometers","\"Nanometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.649172864138193*^9, 3.6491728705000563`*^9}, 
+   3.649173049922278*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"-", "0.188338"}]], "Input",
+ CellChangeTimes->{{3.649347852276744*^9, 3.649347852278254*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.156327"}]], "Input",
+ CellChangeTimes->{{3.649347809460722*^9, 3.649347809461399*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Unscaled (just different unit systems):", "Subsection",
+ CellChangeTimes->{{3.647801270622858*^9, 3.64780128115681*^9}, {
+  3.647821983113638*^9, 3.647821984469111*^9}}],
+
+Cell["\<\
+Note that the units can just be adjusted here and the GlobalParams block in \
+the input file will change. Convert to BASE units and then convert \
+\[Checkmark]\
+\>", "Text",
+ CellChangeTimes->{{3.647713249863946*^9, 3.647713273038348*^9}, {
+  3.647791016427494*^9, 3.647791051523571*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"LengthScale", " ", "=", " ", "\"\<Nanometers\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ChargeScale", " ", "=", "\"\<Attocoulombs\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ForceScale", "=", "\"\<Nanonewtons\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TimeScale", " ", "=", "\"\<Seconds\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MassScale", "=", "\"\<Kilograms\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lenS", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        SqrtBox[
+         FractionBox[
+          RowBox[{"0.6", "*", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "10"}]]}], 
+          RowBox[{"3.766", 
+           RowBox[{"(", 
+            RowBox[{"300", "-", "765.1"}], ")"}], 
+           SuperscriptBox["10", "5"]}]]], ",", "\"\<Meters\>\""}], "]"}], ",",
+       "LengthScale"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"0", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Landau", " ", "coefficients"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]1", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"3.766", 
+         RowBox[{"(", 
+          RowBox[{"298", "-", "765.1"}], ")"}], 
+         SuperscriptBox["10", "5"]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "2"], "\"\<Kilograms\>\"", 
+           "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["LengthScale", "2"], "MassScale", " ", 
+         "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["ChargeScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"T", " ", "=", " ", 
+    RowBox[{"300", " ", "K"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]11", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "0.72530"}], "*", 
+        SuperscriptBox["10", "8"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "6"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "4"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "6"], "MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "4"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]12", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"7.50", "*", 
+        SuperscriptBox["10", "8"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "6"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "4"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "6"], "MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "4"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]111", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"2.60", "*", 
+        SuperscriptBox["10", "8"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "10"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "6"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "10"], "MassScale", " ", 
+        "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "6"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]112", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"6.10", "*", 
+        SuperscriptBox["10", "8"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "10"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "6"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "10"], "MassScale", " ", 
+        "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "6"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]123", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "37.0"}], "*", 
+         SuperscriptBox["10", "8"]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "10"], "\"\<Kilograms\>\"", 
+           "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "6"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["LengthScale", "10"], "MassScale", " ", 
+         "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["ChargeScale", "6"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Domain", " ", "Wall", " ", "term"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"G110", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"1.73", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "10"}]]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "4"], "\"\<Kilograms\>\"", 
+           "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["LengthScale", "4"], "MassScale", " ", 
+         "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["ChargeScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Electrostrictive", " ", "coefficients"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Q11", " ", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.089", ",", 
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["\"\<Meters\>\"", "4"], 
+          SuperscriptBox["\"\<Coulombs\>\"", "2"]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["LengthScale", "4"], 
+        SuperscriptBox["ChargeScale", "2"]], ")"}]}], "]"}]}], ";", 
+   RowBox[{"Q12", " ", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"-", "0.026"}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["\"\<Meters\>\"", "4"], 
+          SuperscriptBox["\"\<Coulombs\>\"", "2"]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["LengthScale", "4"], 
+        SuperscriptBox["ChargeScale", "2"]], ")"}]}], "]"}]}], ";", 
+   RowBox[{"Q33", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.0675", ",", 
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["\"\<Meters\>\"", "4"], 
+          SuperscriptBox["\"\<Coulombs\>\"", "2"]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["LengthScale", "4"], 
+        SuperscriptBox["ChargeScale", "2"]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", "Electrostatics", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Epsilon]0", " ", "=", " ", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"10", "*", "8.854187", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "12"}]]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}], 
+          RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\"", " ", 
+           SuperscriptBox["\"\<Meters\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["ChargeScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}], 
+        RowBox[{"MassScale", " ", 
+         SuperscriptBox["LengthScale", "3"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Elastic", " ", "stiffness", " ", "tensor", " ", "components"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"C11s", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"380.0", "*", 
+        SuperscriptBox["10", "9"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "2"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["LengthScale", "2"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"C12s", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"150.0", "*", 
+        SuperscriptBox["10", "9"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "2"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["LengthScale", "2"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"C33s", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"110.0", "*", 
+         SuperscriptBox["10", "9"]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{"MassScale", " ", "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["LengthScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    SubscriptBox["P", "max"], " ", "or", " ", "approximate", " ", "value", 
+    " ", "of", " ", "polarization", " ", "at", " ", "each", " ", "node", " ", 
+    "at", " ", "end", " ", "of", " ", "simulation"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"Quantity", "[", 
+     RowBox[{"0.65", ",", 
+      RowBox[{"(", 
+       FractionBox["\"\<Coulombs\>\"", 
+        SuperscriptBox["\"\<Meters\>\"", "2"]], ")"}]}], "]"}], ",", 
+    RowBox[{"(", 
+     FractionBox["ChargeScale", 
+      SuperscriptBox["LengthScale", "2"]], ")"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\"\<[GlobalParams]\>\"", "<>", "\"\< \n \>\"", "<>", "\n", 
+  "\"\<len_scale = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "lenS", "]"}], "]"}], " ", "]"}], "<>", 
+  "\"\< \n\>\"", "<>", "\n", "\"\<alpha1 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]1", "]"}], "]"}], "]"}], "<>", 
+  "\"\< # (3.766(T-765.1)*10^5) C^{-2} nm^2 (T = 300 K)\>\"", "<>", 
+  "\"\<\n\>\"", "<>", "\n", "\"\<alpha11 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]11", "]"}], "]"}], "]"}], " ", 
+  "<>", " ", "\"\<\n\>\"", "<>", "\n", "\"\<alpha111 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]111", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<alpha12 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]12", "]"}], "]"}], "]"}], 
+  "<>", "\"\< \n\>\"", "<>", "\n", "\"\<alpha112 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]112", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<alpha123 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]123", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<G110 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"NumberForm", "[", 
+    RowBox[{
+     RowBox[{"FortranForm", "[", 
+      RowBox[{"QuantityMagnitude", "[", "G110", "]"}], "]"}], ",", "2"}], 
+    "]"}], "]"}], "<>", "\"\<\n\>\"", "<>", "\n", "\"\<G11/G110 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", "0.6", "]"}], "]"}], "<>", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<G12/G110 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", "0", "]"}], "]"}], "<>", "\"\< \n\>\"", "<>", 
+  "\n", "\"\<G44/G110 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", "0.3", "]"}], "]"}], "<>", "\"\<\n\>\"", "<>", 
+  " ", "\n", "\"\<G44P/G110 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", "0.3", "]"}], "]"}], "<>", "\"\<\n \>\"", "<>",
+   "\n", "\"\<Q_mnkl = '\>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q11", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q12", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q12", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q11", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q12", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q11", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q33", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q33", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q33", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\<'\>\"", "<>", "\"\<\n\>\"", "<>", "\n", "\"\<permittivity = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", 
+     RowBox[{"1.0", "*", "\[Epsilon]0"}], "]"}], "]"}], "]"}], "<>", 
+  "\"\<\n\>\"", "<>", "\n", "\"\<polar_x = polar_x\>\"", "<>", "\"\<\n\>\"", "<>",
+   "\n", "\"\<polar_y = polar_y\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<polar_z = polar_z\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<potential_int = potential_int\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<potential_ext = potential_ext\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<disp_x=disp_x\>\"", "<>", "\[IndentingNewLine]", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<disp_y=disp_y\>\"", "<>", "\[IndentingNewLine]", "\"\<\n\>\"", "<>",
+   "\n", "\"\<disp_z=disp_z\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<displacements='disp_x disp_y disp_z'\>\"", "<>", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<use_displaced_mesh = false\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<C_ijkl = '\>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C11s", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C12s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C12s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C11s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C12s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C11s", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C33s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C33s", "]"}], "]"}], " ", "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C33s", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\<'\>\"", "<>", "\[IndentingNewLine]", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<#initial_from_file_timestep = 120\>\"", "<>", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<[]\>\""}]}], "Input",
+ CellChangeTimes->{{3.646863040055949*^9, 3.6468630849062557`*^9}, {
+   3.6477102134873667`*^9, 3.647710218874804*^9}, {3.6477103879562674`*^9, 
+   3.647710388922699*^9}, {3.6477108245839977`*^9, 3.647710828153778*^9}, 
+   3.647710887018095*^9, {3.6477109737425537`*^9, 3.647711006355276*^9}, {
+   3.647711183809458*^9, 3.647711206271381*^9}, {3.647711338418755*^9, 
+   3.647711413146394*^9}, {3.647711682036887*^9, 3.64771168966891*^9}, {
+   3.647711728097595*^9, 3.647711773485506*^9}, {3.647711868280829*^9, 
+   3.64771197224361*^9}, {3.647712016637435*^9, 3.6477120331422462`*^9}, {
+   3.647712092416791*^9, 3.647712099197598*^9}, {3.647712140182198*^9, 
+   3.647712160186522*^9}, 3.647712465589872*^9, 3.647712510959057*^9, {
+   3.647712656427106*^9, 3.647712711133376*^9}, {3.647713127836959*^9, 
+   3.647713129394238*^9}, {3.6477132035647087`*^9, 3.6477132087959213`*^9}, {
+   3.647713279198717*^9, 3.6477133160971947`*^9}, {3.647713405628389*^9, 
+   3.647713443102078*^9}, {3.647713475076442*^9, 3.647713517023387*^9}, {
+   3.647714259378776*^9, 3.6477142803597307`*^9}, {3.647714354541769*^9, 
+   3.647714357775249*^9}, {3.6477149091509113`*^9, 3.647714993745089*^9}, {
+   3.647715066369506*^9, 3.647715110769836*^9}, 3.647790233509611*^9, {
+   3.647790345502666*^9, 3.647790346918983*^9}, {3.647790594302248*^9, 
+   3.64779059898962*^9}, {3.647790694110265*^9, 3.647790972240089*^9}, {
+   3.6477916110286703`*^9, 3.64779161439681*^9}, {3.647883296756894*^9, 
+   3.647883302658976*^9}, {3.6478856362085733`*^9, 3.647885638599304*^9}, {
+   3.647887699767662*^9, 3.6478877011871023`*^9}, {3.647968680157094*^9, 
+   3.6479686808620577`*^9}, {3.647970504876733*^9, 3.647970505547999*^9}, {
+   3.6481349774646893`*^9, 3.648134977718112*^9}, {3.648393925414888*^9, 
+   3.648393932644059*^9}, {3.648598226814809*^9, 3.6485982682696457`*^9}, {
+   3.648598334001397*^9, 3.648598336352055*^9}, {3.648813845511849*^9, 
+   3.6488138468166027`*^9}, {3.648816366017646*^9, 3.648816389288848*^9}, {
+   3.648995362750836*^9, 3.648995432568611*^9}, {3.648995462599793*^9, 
+   3.648995469229823*^9}, {3.6489956598662033`*^9, 3.648995680506147*^9}, {
+   3.648995716111557*^9, 3.648995738533271*^9}, {3.648996394490115*^9, 
+   3.648996414121767*^9}, {3.649000624665512*^9, 3.649000667228282*^9}, {
+   3.649001528205715*^9, 3.6490015439501133`*^9}, {3.6490148831739817`*^9, 
+   3.6490148915574903`*^9}, {3.649015525402555*^9, 3.649015526153455*^9}, {
+   3.64902770473005*^9, 3.64902770783773*^9}, {3.649081434142069*^9, 
+   3.6490814717377996`*^9}, {3.649084269429542*^9, 3.649084270347389*^9}, 
+   3.649084301282524*^9, {3.649169374315112*^9, 3.649169442381168*^9}, {
+   3.649172780920265*^9, 3.649172861220356*^9}, {3.649347814274878*^9, 
+   3.649347825235147*^9}, {3.649347856173175*^9, 3.6493478815185204`*^9}, {
+   3.654716380219863*^9, 3.6547164165998793`*^9}, {3.65486364208572*^9, 
+   3.65486365234307*^9}, {3.655731331589226*^9, 3.6557313357788486`*^9}, {
+   3.6635214283190823`*^9, 3.663521431885901*^9}, {3.6635214707314453`*^9, 
+   3.663521471730034*^9}, {3.663521512468419*^9, 3.663521512856346*^9}, {
+   3.66352159403833*^9, 3.663521595218871*^9}, {3.666029352401372*^9, 
+   3.666029376828683*^9}, {3.668848762805831*^9, 3.668848763114154*^9}, {
+   3.66922488479662*^9, 3.66922491311274*^9}, {3.6695022166315536`*^9, 
+   3.6695022412245398`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.647714949106587*^9, 3.647714994298889*^9}, {
+   3.6477150697929688`*^9, 3.6477150808212347`*^9}, 3.6477151115588303`*^9, 
+   3.64779015022888*^9, 3.6477902344130917`*^9, 3.647790347818532*^9, 
+   3.647790700028805*^9, {3.647790854543728*^9, 3.6477908810577927`*^9}, {
+   3.6477909623596163`*^9, 3.647790973921205*^9}, 3.6477916155295353`*^9, 
+   3.647801183362967*^9, {3.647801244708817*^9, 3.647801262933566*^9}, 
+   3.647821991857185*^9, 3.64782261151668*^9, 3.647881961955277*^9, {
+   3.647883297659122*^9, 3.647883302985993*^9}, 3.64788563909289*^9, 
+   3.6478877016432543`*^9, 3.647953417578336*^9, 3.647968647363576*^9, 
+   3.647968681394434*^9, 3.647970507195204*^9, 3.64813498198985*^9, 
+   3.64839393461176*^9, {3.648598221130288*^9, 3.648598238692457*^9}, 
+   3.6485982688037148`*^9, 3.648598336810112*^9, {3.648813835925461*^9, 
+   3.648813847936049*^9}, 3.648816392819159*^9, {3.648995337954102*^9, 
+   3.6489953515654488`*^9}, {3.648995388387806*^9, 3.648995433181642*^9}, 
+   3.6489954702704573`*^9, 3.648995693137491*^9, 3.6489957401271772`*^9, {
+   3.649000655363325*^9, 3.6490006679265623`*^9}, {3.649001531323028*^9, 
+   3.649001544432802*^9}, {3.6490148782144938`*^9, 3.6490148938056087`*^9}, 
+   3.649027709110363*^9, {3.64908142823203*^9, 3.649081480748707*^9}, 
+   3.649084271053145*^9, 3.649084302582322*^9, {3.6491693685184402`*^9, 
+   3.649169442854826*^9}, {3.649347819296727*^9, 3.6493478255781603`*^9}, {
+   3.649347863361546*^9, 3.6493478820479097`*^9}, {3.649451811374509*^9, 
+   3.649451816531884*^9}, {3.65471635844271*^9, 3.6547164204466476`*^9}, 
+   3.654863603013994*^9, {3.65486364403616*^9, 3.654863653400833*^9}, 
+   3.655731271253221*^9, {3.663521422371025*^9, 3.66352143265657*^9}, 
+   3.6635214722291107`*^9, 3.6635215396999607`*^9, 3.66352159607521*^9, {
+   3.666029350045084*^9, 3.666029391656623*^9}, 3.6660294570361767`*^9, 
+   3.668848108445442*^9, 3.6688487636580544`*^9, {3.669224887098259*^9, 
+   3.669224913622155*^9}, 3.669244726234879*^9, 3.669502182885728*^9, {
+   3.66950221990133*^9, 3.669502241677971*^9}}],
+
+Cell[BoxData["\<\"[GlobalParams] \\n len_scale = (0.,0.5852781318800588) \
+\\nalpha1 = -0.17590986 # (3.766(T-765.1)*10^5) C^{-2} nm^2 (T = 300 \
+K)\\nalpha11 = -0.07253\\nalpha111 = 0.26\\nalpha12 = 0.75 \\nalpha112 = 0.61\
+\\nalpha123 = -3.6999999999999997\\nG110 = 0.173\\nG11/G110 = 0.6\\nG12/G110 \
+= 0 \\nG44/G110 = 0.3\\nG44P/G110 = 0.3\\n Q_mnkl = '0.089 -0.026 -0.026 \
+0.089 -0.026 0.089 0.0675 0.0675 0.0675'\\npermittivity = \
+0.08854187\\npolar_x = polar_x\\npolar_y = polar_y\\npolar_z = \
+polar_z\\npotential_int = potential_int\\npotential_ext = \
+potential_ext\\ndisp_x=disp_x\\ndisp_y=disp_y\\ndisp_z=disp_z\\ndisplacements=\
+'disp_x disp_y disp_z'\\nuse_displaced_mesh = false\\nC_ijkl = '380. 150. \
+150. 380. 150. 380. 110. 110. 110.'\\n#initial_from_file_timestep = \
+120\\n[]\"\>"], "Output",
+ CellChangeTimes->{{3.647714949106587*^9, 3.647714994298889*^9}, {
+   3.6477150697929688`*^9, 3.6477150808212347`*^9}, 3.6477151115588303`*^9, 
+   3.64779015022888*^9, 3.6477902344130917`*^9, 3.647790347818532*^9, 
+   3.647790700028805*^9, {3.647790854543728*^9, 3.6477908810577927`*^9}, {
+   3.6477909623596163`*^9, 3.647790973921205*^9}, 3.6477916155295353`*^9, 
+   3.647801183362967*^9, {3.647801244708817*^9, 3.647801262933566*^9}, 
+   3.647821991857185*^9, 3.64782261151668*^9, 3.647881961955277*^9, {
+   3.647883297659122*^9, 3.647883302985993*^9}, 3.64788563909289*^9, 
+   3.6478877016432543`*^9, 3.647953417578336*^9, 3.647968647363576*^9, 
+   3.647968681394434*^9, 3.647970507195204*^9, 3.64813498198985*^9, 
+   3.64839393461176*^9, {3.648598221130288*^9, 3.648598238692457*^9}, 
+   3.6485982688037148`*^9, 3.648598336810112*^9, {3.648813835925461*^9, 
+   3.648813847936049*^9}, 3.648816392819159*^9, {3.648995337954102*^9, 
+   3.6489953515654488`*^9}, {3.648995388387806*^9, 3.648995433181642*^9}, 
+   3.6489954702704573`*^9, 3.648995693137491*^9, 3.6489957401271772`*^9, {
+   3.649000655363325*^9, 3.6490006679265623`*^9}, {3.649001531323028*^9, 
+   3.649001544432802*^9}, {3.6490148782144938`*^9, 3.6490148938056087`*^9}, 
+   3.649027709110363*^9, {3.64908142823203*^9, 3.649081480748707*^9}, 
+   3.649084271053145*^9, 3.649084302582322*^9, {3.6491693685184402`*^9, 
+   3.649169442854826*^9}, {3.649347819296727*^9, 3.6493478255781603`*^9}, {
+   3.649347863361546*^9, 3.6493478820479097`*^9}, {3.649451811374509*^9, 
+   3.649451816531884*^9}, {3.65471635844271*^9, 3.6547164204466476`*^9}, 
+   3.654863603013994*^9, {3.65486364403616*^9, 3.654863653400833*^9}, 
+   3.655731271253221*^9, {3.663521422371025*^9, 3.66352143265657*^9}, 
+   3.6635214722291107`*^9, 3.6635215396999607`*^9, 3.66352159607521*^9, {
+   3.666029350045084*^9, 3.666029391656623*^9}, 3.6660294570361767`*^9, 
+   3.668848108445442*^9, 3.6688487636580544`*^9, {3.669224887098259*^9, 
+   3.669224913622155*^9}, 3.669244726234879*^9, 3.669502182885728*^9, {
+   3.66950221990133*^9, 3.669502241686059*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Input file syntax (BTO):", "Section",
+ CellChangeTimes->{{3.659447161731975*^9, 3.659447165983604*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"T", " ", "=", " ", "298"}], ";"}]], "Input",
+ CellChangeTimes->{{3.659451588805501*^9, 3.6594515919507837`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"LengthScale", " ", "=", " ", "\"\<Nanometers\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ChargeScale", " ", "=", "\"\<Attocoulombs\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ForceScale", "=", "\"\<Nanonewtons\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TimeScale", " ", "=", "\"\<Seconds\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MassScale", "=", "\"\<Kilograms\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lenS", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", "\"\<Meters\>\""}], "]"}], ",", "LengthScale"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Landau", " ", "coefficients"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]1", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"3.34", "*", 
+         RowBox[{"(", 
+          RowBox[{"T", "-", "381"}], ")"}], "*", 
+         SuperscriptBox["10", "5"]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "2"], "\"\<Kilograms\>\"", 
+           "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["LengthScale", "2"], "MassScale", " ", 
+         "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["ChargeScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"T", " ", "=", " ", 
+    RowBox[{"300", " ", "K"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]11", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"4.69", "*", 
+        RowBox[{"(", 
+         RowBox[{"T", "-", "393"}], ")"}], "*", 
+        SuperscriptBox["10", "6"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "6"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "4"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "6"], "MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "4"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]12", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"3.23", "*", 
+        SuperscriptBox["10", "8"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "6"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "4"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "6"], "MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "4"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]111", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "5.52"}], "*", 
+           RowBox[{"(", 
+            RowBox[{"T", "-", "120"}], ")"}]}], "+", "276"}], ")"}], "*", 
+        SuperscriptBox["10", "7"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "10"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "6"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "10"], "MassScale", " ", 
+        "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "6"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]112", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"4.47", "*", 
+        SuperscriptBox["10", "9"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "10"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "6"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "10"], "MassScale", " ", 
+        "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "6"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]123", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"4.919", "*", 
+         SuperscriptBox["10", "9"]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "10"], "\"\<Kilograms\>\"", 
+           "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "6"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["LengthScale", "10"], "MassScale", " ", 
+         "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["ChargeScale", "6"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Domain", " ", "Wall", " ", "term"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"G110", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"5.1", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "10"}]]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "4"], "\"\<Kilograms\>\"", 
+           "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["LengthScale", "4"], "MassScale", " ", 
+         "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["ChargeScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Electrostrictive", " ", "coefficients"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Q11", " ", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.11", ",", 
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["\"\<Meters\>\"", "4"], 
+          SuperscriptBox["\"\<Coulombs\>\"", "2"]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["LengthScale", "4"], 
+        SuperscriptBox["ChargeScale", "2"]], ")"}]}], "]"}]}], ";", 
+   RowBox[{"Q12", " ", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"-", "0.045"}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["\"\<Meters\>\"", "4"], 
+          SuperscriptBox["\"\<Coulombs\>\"", "2"]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["LengthScale", "4"], 
+        SuperscriptBox["ChargeScale", "2"]], ")"}]}], "]"}]}], ";", 
+   RowBox[{"Q33", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.059", ",", 
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["\"\<Meters\>\"", "4"], 
+          SuperscriptBox["\"\<Coulombs\>\"", "2"]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["LengthScale", "4"], 
+        SuperscriptBox["ChargeScale", "2"]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", "Electrostatics", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Epsilon]0", " ", "=", " ", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"10", "*", "8.854187", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "12"}]]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}], 
+          RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\"", " ", 
+           SuperscriptBox["\"\<Meters\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["ChargeScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}], 
+        RowBox[{"MassScale", " ", 
+         SuperscriptBox["LengthScale", "3"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Elastic", " ", "stiffness", " ", "tensor", " ", "components"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"C11s", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"176.4", "*", 
+        SuperscriptBox["10", "9"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "2"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["LengthScale", "2"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"C12s", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"79.37", "*", 
+        SuperscriptBox["10", "9"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "2"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["LengthScale", "2"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"C33s", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"111.0", "*", 
+         SuperscriptBox["10", "9"]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{"MassScale", " ", "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["LengthScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    SubscriptBox["P", "max"], " ", "or", " ", "approximate", " ", "value", 
+    " ", "of", " ", "polarization", " ", "at", " ", "each", " ", "node", " ", 
+    "at", " ", "end", " ", "of", " ", "simulation"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"Quantity", "[", 
+     RowBox[{"0.65", ",", 
+      RowBox[{"(", 
+       FractionBox["\"\<Coulombs\>\"", 
+        SuperscriptBox["\"\<Meters\>\"", "2"]], ")"}]}], "]"}], ",", 
+    RowBox[{"(", 
+     FractionBox["ChargeScale", 
+      SuperscriptBox["LengthScale", "2"]], ")"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\"\<[GlobalParams]\>\"", "<>", "\"\< \n \>\"", "<>", "\n", 
+  "\"\<len_scale = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "lenS", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \n\>\"", "<>", "\n", "\"\<alpha1 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]1", "]"}], "]"}], "]"}], "<>", 
+  "\"\<\n\>\"", "<>", "\n", "\"\<alpha11 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]11", "]"}], "]"}], "]"}], " ", 
+  "<>", " ", "\"\<\n\>\"", "<>", "\n", "\"\<alpha111 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]111", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<alpha12 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]12", "]"}], "]"}], "]"}], 
+  "<>", "\"\< \n\>\"", "<>", "\n", "\"\<alpha112 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]112", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<alpha123 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]123", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<G110 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"NumberForm", "[", 
+    RowBox[{
+     RowBox[{"FortranForm", "[", 
+      RowBox[{"QuantityMagnitude", "[", "G110", "]"}], "]"}], ",", "2"}], 
+    "]"}], "]"}], "<>", "\"\<\n\>\"", "<>", "\n", "\"\<Q_mnkl = '\>\"", "<>", 
+  
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q11", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q12", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q12", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q11", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q12", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q11", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q33", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q33", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q33", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\<'\>\"", "<>", "\"\<\n\>\"", "<>", "\n", "\"\<permittivity = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Epsilon]0", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<polar_x = polar_x\>\"", "<>", 
+  "\"\<\n\>\"", "<>", "\n", "\"\<polar_y = polar_y\>\"", "<>", "\"\<\n\>\"", "<>",
+   "\n", "\"\<polar_z = polar_z\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<potential_int = potential_int\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<potential_ext = potential_ext\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<disp_x=disp_x\>\"", "<>", "\[IndentingNewLine]", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<disp_y=disp_y\>\"", "<>", "\[IndentingNewLine]", "\"\<\n\>\"", "<>",
+   "\n", "\"\<disp_z=disp_z\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<displacements='disp_x disp_y disp_z'\>\"", "<>", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<use_displaced_mesh = false\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<C_ijkl = '\>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C11s", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C12s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C12s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C11s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C12s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C11s", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C33s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C33s", "]"}], "]"}], " ", "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C33s", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\<'\>\"", "<>", "\[IndentingNewLine]", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<#initial_from_file_timestep = 120\>\"", "<>", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<[]\>\""}]}], "Input",
+ CellChangeTimes->{{3.646863040055949*^9, 3.6468630849062557`*^9}, {
+   3.6477102134873667`*^9, 3.647710218874804*^9}, {3.6477103879562674`*^9, 
+   3.647710388922699*^9}, {3.6477108245839977`*^9, 3.647710828153778*^9}, 
+   3.647710887018095*^9, {3.6477109737425537`*^9, 3.647711006355276*^9}, {
+   3.647711183809458*^9, 3.647711206271381*^9}, {3.647711338418755*^9, 
+   3.647711413146394*^9}, {3.647711682036887*^9, 3.64771168966891*^9}, {
+   3.647711728097595*^9, 3.647711773485506*^9}, {3.647711868280829*^9, 
+   3.64771197224361*^9}, {3.647712016637435*^9, 3.6477120331422462`*^9}, {
+   3.647712092416791*^9, 3.647712099197598*^9}, {3.647712140182198*^9, 
+   3.647712160186522*^9}, 3.647712465589872*^9, 3.647712510959057*^9, {
+   3.647712656427106*^9, 3.647712711133376*^9}, {3.647713127836959*^9, 
+   3.647713129394238*^9}, {3.6477132035647087`*^9, 3.6477132087959213`*^9}, {
+   3.647713279198717*^9, 3.6477133160971947`*^9}, {3.647713405628389*^9, 
+   3.647713443102078*^9}, {3.647713475076442*^9, 3.647713517023387*^9}, {
+   3.647714259378776*^9, 3.6477142803597307`*^9}, {3.647714354541769*^9, 
+   3.647714357775249*^9}, {3.6477149091509113`*^9, 3.647714993745089*^9}, {
+   3.647715066369506*^9, 3.647715110769836*^9}, 3.647790233509611*^9, {
+   3.647790345502666*^9, 3.647790346918983*^9}, {3.647790594302248*^9, 
+   3.64779059898962*^9}, {3.647790694110265*^9, 3.647790972240089*^9}, {
+   3.6477916110286703`*^9, 3.64779161439681*^9}, {3.647883296756894*^9, 
+   3.647883302658976*^9}, {3.6478856362085733`*^9, 3.647885638599304*^9}, {
+   3.647887699767662*^9, 3.6478877011871023`*^9}, {3.647968680157094*^9, 
+   3.6479686808620577`*^9}, {3.647970504876733*^9, 3.647970505547999*^9}, {
+   3.6481349774646893`*^9, 3.648134977718112*^9}, {3.648393925414888*^9, 
+   3.648393932644059*^9}, {3.648598226814809*^9, 3.6485982682696457`*^9}, {
+   3.648598334001397*^9, 3.648598336352055*^9}, {3.648813845511849*^9, 
+   3.6488138468166027`*^9}, {3.648816366017646*^9, 3.648816389288848*^9}, {
+   3.648995362750836*^9, 3.648995432568611*^9}, {3.648995462599793*^9, 
+   3.648995469229823*^9}, {3.6489956598662033`*^9, 3.648995680506147*^9}, {
+   3.648995716111557*^9, 3.648995738533271*^9}, {3.648996394490115*^9, 
+   3.648996414121767*^9}, {3.649000624665512*^9, 3.649000667228282*^9}, {
+   3.649001528205715*^9, 3.6490015439501133`*^9}, {3.6490148831739817`*^9, 
+   3.6490148915574903`*^9}, {3.649015525402555*^9, 3.649015526153455*^9}, {
+   3.64902770473005*^9, 3.64902770783773*^9}, {3.649081434142069*^9, 
+   3.6490814717377996`*^9}, {3.649084269429542*^9, 3.649084270347389*^9}, 
+   3.649084301282524*^9, {3.649169374315112*^9, 3.649169442381168*^9}, {
+   3.649172780920265*^9, 3.649172861220356*^9}, {3.649347814274878*^9, 
+   3.649347825235147*^9}, {3.649347856173175*^9, 3.6493478815185204`*^9}, {
+   3.654716380219863*^9, 3.6547164165998793`*^9}, {3.65486364208572*^9, 
+   3.65486365234307*^9}, {3.655731331589226*^9, 3.6557313357788486`*^9}, {
+   3.6583606008709097`*^9, 3.658360703988626*^9}, {3.658360745101261*^9, 
+   3.658360767178335*^9}, {3.65896878238428*^9, 3.658968791980217*^9}, {
+   3.6589689030366497`*^9, 3.658968903446032*^9}, {3.658969015171729*^9, 
+   3.6589690209314337`*^9}, {3.6594471925949993`*^9, 3.659447201454453*^9}, {
+   3.6594515680744257`*^9, 3.659451754589148*^9}, {3.659453549876947*^9, 
+   3.659453550099134*^9}, {3.659454645840353*^9, 3.659454646292161*^9}, {
+   3.668264833738061*^9, 3.6682648433825893`*^9}, {3.669224974208976*^9, 
+   3.669224974530427*^9}, {3.6692251067651567`*^9, 3.66922510685503*^9}, {
+   3.669228663615346*^9, 3.669228672120449*^9}, {3.669229575112563*^9, 
+   3.6692295754544563`*^9}, {3.669230997947959*^9, 3.6692309984450293`*^9}, {
+   3.669231916621228*^9, 3.669231916801806*^9}}],
+
+Cell[BoxData["\<\"[GlobalParams] \\n len_scale = 1000000000 \\nalpha1 = \
+0.000334*(-381 + T)\\nalpha11 = 0.00469*(-393 + T)\\nalpha111 = (276 - \
+5.52*(-120 + T))/100.\\nalpha12 = 0.323 \\nalpha112 = 4.47\\nalpha123 = 4.919\
+\\nG110 = 0.51\\nQ_mnkl = '0.11 -0.045 -0.045 0.11 -0.045 0.11 0.059 0.059 \
+0.059'\\npermittivity = 0.08854187\\npolar_x = polar_x\\npolar_y = \
+polar_y\\npolar_z = polar_z\\npotential_int = potential_int\\npotential_ext = \
+potential_ext\\ndisp_x=disp_x\\ndisp_y=disp_y\\ndisp_z=disp_z\\ndisplacements=\
+'disp_x disp_y disp_z'\\nuse_displaced_mesh = false\\nC_ijkl = '176.4 79.37 \
+79.37 176.4 79.37 176.4 111. 111. 111.'\\n#initial_from_file_timestep = \
+120\\n[]\"\>"], "Output",
+ CellChangeTimes->{{3.669224962554291*^9, 3.669224976034741*^9}, 
+   3.669225107385744*^9, {3.669228664917121*^9, 3.66922867262984*^9}, 
+   3.6692295365525513`*^9, 3.669229576059536*^9, 3.669230999012924*^9, 
+   3.669231917404655*^9, 3.669235300713505*^9, 3.6692447340155983`*^9, 
+   3.669751590217856*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[" PZT :", "Section",
+ CellChangeTimes->{{3.668453985691751*^9, 3.668453995357976*^9}, {
+  3.6692448446549788`*^9, 3.669244847639134*^9}}],
+
+Cell["compiled from Alpay\[CloseCurlyQuote]s paper (has solution \
+dependence)", "Text",
+ CellChangeTimes->{{3.669244851050462*^9, 3.6692448602540083`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"T", " ", "=", " ", "298"}], ";"}]], "Input",
+ CellChangeTimes->{{3.659451588805501*^9, 3.6594515919507837`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"LengthScale", " ", "=", " ", "\"\<Nanometers\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ChargeScale", " ", "=", "\"\<Attocoulombs\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ForceScale", "=", "\"\<Nanonewtons\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TimeScale", " ", "=", "\"\<Seconds\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MassScale", "=", "\"\<Kilograms\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lenS", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", "\"\<Meters\>\""}], "]"}], ",", "LengthScale"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Landau", " ", "coefficients"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]1", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"3.441", "*", 
+         RowBox[{"(", 
+          RowBox[{"T", "-", "732.1"}], ")"}], "*", 
+         SuperscriptBox["10", "5"]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "2"], "\"\<Kilograms\>\"", 
+           "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["LengthScale", "2"], "MassScale", " ", 
+         "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["ChargeScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"T", " ", "=", " ", 
+    RowBox[{"300", " ", "K"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]11", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "3.05"}], "*", 
+        SuperscriptBox["10", "7"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "6"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "4"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "6"], "MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "4"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]12", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"6.32", "*", 
+        SuperscriptBox["10", "8"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "6"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "4"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "6"], "MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "4"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]111", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"2.475", "*", 
+        SuperscriptBox["10", "8"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "10"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "6"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "10"], "MassScale", " ", 
+        "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "6"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]112", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"9.684", "*", 
+        SuperscriptBox["10", "8"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "10"], "\"\<Kilograms\>\"", 
+          "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Coulombs\>\"", "6"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["LengthScale", "10"], "MassScale", " ", 
+        "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["ChargeScale", "6"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]123", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "4.901"}], "*", 
+         SuperscriptBox["10", "9"]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "10"], "\"\<Kilograms\>\"", 
+           "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "6"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["LengthScale", "10"], "MassScale", " ", 
+         "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["ChargeScale", "6"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Domain", " ", "Wall", " ", "term"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"G110", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"1.483", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "10"}]]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "4"], "\"\<Kilograms\>\"", 
+           "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["LengthScale", "4"], "MassScale", " ", 
+         "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["ChargeScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Electrostrictive", " ", "coefficients"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Q11", " ", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"8.142", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "2"}]]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["\"\<Meters\>\"", "4"], 
+          SuperscriptBox["\"\<Coulombs\>\"", "2"]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["LengthScale", "4"], 
+        SuperscriptBox["ChargeScale", "2"]], ")"}]}], "]"}]}], ";", 
+   RowBox[{"Q12", " ", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "2.446"}], "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "2"}]]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["\"\<Meters\>\"", "4"], 
+          SuperscriptBox["\"\<Coulombs\>\"", "2"]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["LengthScale", "4"], 
+        SuperscriptBox["ChargeScale", "2"]], ")"}]}], "]"}]}], ";", 
+   RowBox[{"Q33", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"6.417", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "2"}]]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          SuperscriptBox["\"\<Meters\>\"", "4"], 
+          SuperscriptBox["\"\<Coulombs\>\"", "2"]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        SuperscriptBox["LengthScale", "4"], 
+        SuperscriptBox["ChargeScale", "2"]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", "Electrostatics", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Epsilon]0", " ", "=", " ", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"10", "*", "8.854187", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "12"}]]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{
+           SuperscriptBox["\"\<Coulombs\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}], 
+          RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\"", " ", 
+           SuperscriptBox["\"\<Meters\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["ChargeScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}], 
+        RowBox[{"MassScale", " ", 
+         SuperscriptBox["LengthScale", "3"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Elastic", " ", "stiffness", " ", "tensor", " ", "components"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"C11s", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"176.4", "*", 
+        SuperscriptBox["10", "9"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "2"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["LengthScale", "2"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"C12s", "=", 
+   RowBox[{"UnitConvert", "[", 
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"79.37", "*", 
+        SuperscriptBox["10", "9"]}], ",", 
+       RowBox[{"(", 
+        FractionBox[
+         RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\""}], 
+         RowBox[{
+          SuperscriptBox["\"\<Meters\>\"", "2"], 
+          SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"MassScale", " ", "LengthScale"}], 
+       RowBox[{
+        SuperscriptBox["LengthScale", "2"], 
+        SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"C33s", "=", 
+    RowBox[{"UnitConvert", "[", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"111.0", "*", 
+         SuperscriptBox["10", "9"]}], ",", 
+        RowBox[{"(", 
+         FractionBox[
+          RowBox[{"\"\<Kilograms\>\"", "\"\<Meters\>\""}], 
+          RowBox[{
+           SuperscriptBox["\"\<Meters\>\"", "2"], 
+           SuperscriptBox["\"\<Seconds\>\"", "2"]}]], ")"}]}], "]"}], ",", 
+      RowBox[{"(", 
+       FractionBox[
+        RowBox[{"MassScale", " ", "LengthScale"}], 
+        RowBox[{
+         SuperscriptBox["LengthScale", "2"], 
+         SuperscriptBox["TimeScale", "2"]}]], ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    SubscriptBox["P", "max"], " ", "or", " ", "approximate", " ", "value", 
+    " ", "of", " ", "polarization", " ", "at", " ", "each", " ", "node", " ", 
+    "at", " ", "end", " ", "of", " ", "simulation"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"Quantity", "[", 
+     RowBox[{"0.65", ",", 
+      RowBox[{"(", 
+       FractionBox["\"\<Coulombs\>\"", 
+        SuperscriptBox["\"\<Meters\>\"", "2"]], ")"}]}], "]"}], ",", 
+    RowBox[{"(", 
+     FractionBox["ChargeScale", 
+      SuperscriptBox["LengthScale", "2"]], ")"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\"\<[GlobalParams]\>\"", "<>", "\"\< \n \>\"", "<>", "\n", 
+  "\"\<len_scale = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "lenS", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \n\>\"", "<>", "\n", "\"\<alpha1 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]1", "]"}], "]"}], "]"}], "<>", 
+  "\"\<\n\>\"", "<>", "\n", "\"\<alpha11 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]11", "]"}], "]"}], "]"}], " ", 
+  "<>", " ", "\"\<\n\>\"", "<>", "\n", "\"\<alpha111 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]111", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<alpha12 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]12", "]"}], "]"}], "]"}], 
+  "<>", "\"\< \n\>\"", "<>", "\n", "\"\<alpha112 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]112", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<alpha123 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Alpha]123", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<G110 = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"NumberForm", "[", 
+    RowBox[{
+     RowBox[{"FortranForm", "[", 
+      RowBox[{"QuantityMagnitude", "[", "G110", "]"}], "]"}], ",", "2"}], 
+    "]"}], "]"}], "<>", "\"\<\n\>\"", "<>", "\n", "\"\<Q_mnkl = '\>\"", "<>", 
+  
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q11", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q12", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q12", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q11", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q12", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q11", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q33", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q33", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "Q33", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\<'\>\"", "<>", "\"\<\n\>\"", "<>", "\n", "\"\<permittivity = \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "\[Epsilon]0", "]"}], "]"}], "]"}], 
+  "<>", "\"\<\n\>\"", "<>", "\n", "\"\<polar_x = polar_x\>\"", "<>", 
+  "\"\<\n\>\"", "<>", "\n", "\"\<polar_y = polar_y\>\"", "<>", "\"\<\n\>\"", "<>",
+   "\n", "\"\<polar_z = polar_z\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<potential_int = potential_int\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<potential_ext = potential_ext\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<disp_x=disp_x\>\"", "<>", "\[IndentingNewLine]", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<disp_y=disp_y\>\"", "<>", "\[IndentingNewLine]", "\"\<\n\>\"", "<>",
+   "\n", "\"\<disp_z=disp_z\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<displacements='disp_x disp_y disp_z'\>\"", "<>", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<use_displaced_mesh = false\>\"", "<>", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<C_ijkl = '\>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C11s", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C12s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C12s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C11s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C12s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C11s", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C33s", "]"}], "]"}], "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C33s", "]"}], "]"}], " ", "]"}], "<>", 
+  "\"\< \>\"", "<>", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"FortranForm", "[", 
+    RowBox[{"QuantityMagnitude", "[", "C33s", "]"}], "]"}], "]"}], " ", "<>", 
+  "\"\<'\>\"", "<>", "\[IndentingNewLine]", "\"\<\n\>\"", "<>", "\n", 
+  "\"\<#initial_from_file_timestep = 120\>\"", "<>", "\"\<\n\>\"", "<>", 
+  "\n", "\"\<[]\>\""}]}], "Input",
+ CellChangeTimes->{{3.646863040055949*^9, 3.6468630849062557`*^9}, {
+   3.6477102134873667`*^9, 3.647710218874804*^9}, {3.6477103879562674`*^9, 
+   3.647710388922699*^9}, {3.6477108245839977`*^9, 3.647710828153778*^9}, 
+   3.647710887018095*^9, {3.6477109737425537`*^9, 3.647711006355276*^9}, {
+   3.647711183809458*^9, 3.647711206271381*^9}, {3.647711338418755*^9, 
+   3.647711413146394*^9}, {3.647711682036887*^9, 3.64771168966891*^9}, {
+   3.647711728097595*^9, 3.647711773485506*^9}, {3.647711868280829*^9, 
+   3.64771197224361*^9}, {3.647712016637435*^9, 3.6477120331422462`*^9}, {
+   3.647712092416791*^9, 3.647712099197598*^9}, {3.647712140182198*^9, 
+   3.647712160186522*^9}, 3.647712465589872*^9, 3.647712510959057*^9, {
+   3.647712656427106*^9, 3.647712711133376*^9}, {3.647713127836959*^9, 
+   3.647713129394238*^9}, {3.6477132035647087`*^9, 3.6477132087959213`*^9}, {
+   3.647713279198717*^9, 3.6477133160971947`*^9}, {3.647713405628389*^9, 
+   3.647713443102078*^9}, {3.647713475076442*^9, 3.647713517023387*^9}, {
+   3.647714259378776*^9, 3.6477142803597307`*^9}, {3.647714354541769*^9, 
+   3.647714357775249*^9}, {3.6477149091509113`*^9, 3.647714993745089*^9}, {
+   3.647715066369506*^9, 3.647715110769836*^9}, 3.647790233509611*^9, {
+   3.647790345502666*^9, 3.647790346918983*^9}, {3.647790594302248*^9, 
+   3.64779059898962*^9}, {3.647790694110265*^9, 3.647790972240089*^9}, {
+   3.6477916110286703`*^9, 3.64779161439681*^9}, {3.647883296756894*^9, 
+   3.647883302658976*^9}, {3.6478856362085733`*^9, 3.647885638599304*^9}, {
+   3.647887699767662*^9, 3.6478877011871023`*^9}, {3.647968680157094*^9, 
+   3.6479686808620577`*^9}, {3.647970504876733*^9, 3.647970505547999*^9}, {
+   3.6481349774646893`*^9, 3.648134977718112*^9}, {3.648393925414888*^9, 
+   3.648393932644059*^9}, {3.648598226814809*^9, 3.6485982682696457`*^9}, {
+   3.648598334001397*^9, 3.648598336352055*^9}, {3.648813845511849*^9, 
+   3.6488138468166027`*^9}, {3.648816366017646*^9, 3.648816389288848*^9}, {
+   3.648995362750836*^9, 3.648995432568611*^9}, {3.648995462599793*^9, 
+   3.648995469229823*^9}, {3.6489956598662033`*^9, 3.648995680506147*^9}, {
+   3.648995716111557*^9, 3.648995738533271*^9}, {3.648996394490115*^9, 
+   3.648996414121767*^9}, {3.649000624665512*^9, 3.649000667228282*^9}, {
+   3.649001528205715*^9, 3.6490015439501133`*^9}, {3.6490148831739817`*^9, 
+   3.6490148915574903`*^9}, {3.649015525402555*^9, 3.649015526153455*^9}, {
+   3.64902770473005*^9, 3.64902770783773*^9}, {3.649081434142069*^9, 
+   3.6490814717377996`*^9}, {3.649084269429542*^9, 3.649084270347389*^9}, 
+   3.649084301282524*^9, {3.649169374315112*^9, 3.649169442381168*^9}, {
+   3.649172780920265*^9, 3.649172861220356*^9}, {3.649347814274878*^9, 
+   3.649347825235147*^9}, {3.649347856173175*^9, 3.6493478815185204`*^9}, {
+   3.654716380219863*^9, 3.6547164165998793`*^9}, {3.65486364208572*^9, 
+   3.65486365234307*^9}, {3.655731331589226*^9, 3.6557313357788486`*^9}, {
+   3.6583606008709097`*^9, 3.658360703988626*^9}, {3.658360745101261*^9, 
+   3.658360767178335*^9}, {3.65896878238428*^9, 3.658968791980217*^9}, {
+   3.6589689030366497`*^9, 3.658968903446032*^9}, {3.658969015171729*^9, 
+   3.6589690209314337`*^9}, {3.6594471925949993`*^9, 3.659447201454453*^9}, {
+   3.6594515680744257`*^9, 3.659451754589148*^9}, {3.659453549876947*^9, 
+   3.659453550099134*^9}, {3.659454645840353*^9, 3.659454646292161*^9}, {
+   3.668264833738061*^9, 3.6682648433825893`*^9}, {3.669224974208976*^9, 
+   3.669224974530427*^9}, {3.6692251067651567`*^9, 3.66922510685503*^9}, {
+   3.669228663615346*^9, 3.669228672120449*^9}, {3.669229575112563*^9, 
+   3.6692295754544563`*^9}, {3.669230997947959*^9, 3.6692309984450293`*^9}, {
+   3.669231916621228*^9, 3.669231916801806*^9}, {3.669244772769558*^9, 
+   3.669244833041926*^9}, {3.669245172738984*^9, 3.6692451889122543`*^9}, {
+   3.669245427280531*^9, 3.6692454292280493`*^9}, {3.669245471691001*^9, 
+   3.66924550647355*^9}, {3.669246197444167*^9, 3.669246209391718*^9}}],
+
+Cell[BoxData["\<\"[GlobalParams] \\n len_scale = 1000000000 \\nalpha1 = \
+-0.14937381\\nalpha11 = -0.0305\\nalpha111 = 0.2475\\nalpha12 = 0.632 \
+\\nalpha112 = 0.9683999999999998\\nalpha123 = -4.901\\nG110 = \
+0.14830000000000002\\nQ_mnkl = '0.08141999999999999 -0.024460000000000003 \
+-0.024460000000000003 0.08141999999999999 -0.024460000000000003 \
+0.08141999999999999 0.06417 0.06417 0.06417'\\npermittivity = \
+0.08854187\\npolar_x = polar_x\\npolar_y = polar_y\\npolar_z = \
+polar_z\\npotential_int = potential_int\\npotential_ext = \
+potential_ext\\ndisp_x=disp_x\\ndisp_y=disp_y\\ndisp_z=disp_z\\ndisplacements=\
+'disp_x disp_y disp_z'\\nuse_displaced_mesh = false\\nC_ijkl = '176.4 79.37 \
+79.37 176.4 79.37 176.4 111. 111. 111.'\\n#initial_from_file_timestep = \
+120\\n[]\"\>"], "Output",
+ CellChangeTimes->{{3.669224962554291*^9, 3.669224976034741*^9}, 
+   3.669225107385744*^9, {3.669228664917121*^9, 3.66922867262984*^9}, 
+   3.6692295365525513`*^9, 3.669229576059536*^9, 3.669230999012924*^9, 
+   3.669231917404655*^9, 3.669235300713505*^9, 3.6692447340155983`*^9, {
+   3.669245199035633*^9, 3.669245208403331*^9}, 3.669245429749157*^9, 
+   3.669245507420844*^9, 3.669246210027018*^9}]
+}, Open  ]]
+}, Closed]]
+},
+WindowSize->{1855, 1056},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.25,
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 159, 2, 81, "Section"],
+Cell[CellGroupData[{
+Cell[764, 28, 604, 18, 93, "Input"],
+Cell[1371, 48, 209, 4, 40, "Output"]
+}, Open  ]],
+Cell[1595, 55, 117, 2, 38, "Input"],
+Cell[1715, 59, 117, 2, 38, "Input"],
+Cell[CellGroupData[{
+Cell[1857, 65, 175, 2, 56, "Subsection"],
+Cell[2035, 69, 298, 6, 40, "Text"],
+Cell[CellGroupData[{
+Cell[2358, 79, 22467, 563, 3044, "Input"],
+Cell[24828, 644, 2113, 29, 47, "Output"],
+Cell[26944, 675, 2900, 40, 933, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[29905, 722, 109, 1, 63, "Section"],
+Cell[30017, 725, 147, 3, 38, "Input"],
+Cell[CellGroupData[{
+Cell[30189, 732, 22040, 550, 2727, "Input"],
+Cell[52232, 1284, 1016, 14, 614, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53297, 1304, 142, 2, 81, "Section"],
+Cell[53442, 1308, 156, 2, 62, "Text"],
+Cell[53601, 1312, 147, 3, 58, "Input"],
+Cell[CellGroupData[{
+Cell[53773, 1319, 22347, 556, 4260, "Input"],
+Cell[76123, 1877, 1199, 17, 1050, "Output"]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+
+(* End of internal cache information *)

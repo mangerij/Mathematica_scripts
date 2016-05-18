@@ -1,0 +1,201 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[      7431,        200]
+NotebookOptionsPosition[      7039,        180]
+NotebookOutlinePosition[      7374,        195]
+CellTagsIndexPosition[      7331,        192]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Phi]", " ", "=", " ", "1"}], ";", " ", 
+  RowBox[{"\[Omega]", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"fitUniversal", "[", 
+     RowBox[{
+     "T_", ",", " ", "Px_", ",", " ", "Py_", ",", " ", "\[Epsilon]_", ",", 
+      " ", "Ex_", ",", " ", "Ey_"}], "]"}], " ", ":=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"-", "Ex"}], ")"}], "*", "Px"}], " ", "-", " ", 
+     RowBox[{"Ey", "*", "Py"}], " ", "+", " ", 
+     RowBox[{"3.7309631540402794*^9", "*", 
+      RowBox[{"Px", "^", "2"}], "*", 
+      RowBox[{"Py", "^", "2"}]}], " ", "+", " ", 
+     RowBox[{"1.7595573932168193*^9", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Px", "^", "4"}], " ", "+", " ", 
+        RowBox[{"Py", "^", "4"}]}], ")"}]}], " ", "-", " ", 
+     RowBox[{"6.50780144218582*^8", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Px", "^", "4"}], "*", 
+         RowBox[{"Py", "^", "2"}]}], " ", "+", " ", 
+        RowBox[{
+         RowBox[{"Px", "^", "2"}], "*", 
+         RowBox[{"Py", "^", "4"}]}]}], ")"}]}], " ", "-", " ", "\n", "   ", 
+     RowBox[{"5.901102883438983*^8", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Px", "^", "6"}], " ", "+", " ", 
+        RowBox[{"Py", "^", "6"}]}], ")"}]}], " ", "+", " ", 
+     RowBox[{"1.2712934148987874*^6", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Px", "^", "2"}], " ", "+", " ", 
+        RowBox[{"Py", "^", "2"}]}], ")"}], "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "120"}], " ", "+", " ", "T"}], ")"}]}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "2.510675608323508*^11"}], "*", 
+         RowBox[{"Px", "^", "2"}], "*", 
+         RowBox[{"Py", "^", "2"}]}], " ", "-", " ", 
+        RowBox[{"4.17646670065401*^9", "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Px", "^", "2"}], " ", "+", " ", 
+           RowBox[{"Py", "^", "2"}]}], ")"}]}], " ", "-", " ", "\n", "     ", 
+        
+        RowBox[{"3.685708175223359*^10", "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Px", "^", "4"}], " ", "+", " ", 
+           RowBox[{"Py", "^", "4"}]}], ")"}]}]}], ")"}], "*", "\[Epsilon]"}], 
+     " ", "+", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"6.486661547893217*^12", "*", 
+         RowBox[{"Px", "^", "2"}], "*", 
+         RowBox[{"Py", "^", "2"}]}], " ", "+", " ", 
+        RowBox[{"1.2129917521706586*^11", "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Px", "^", "2"}], " ", "+", " ", 
+           RowBox[{"Py", "^", "2"}]}], ")"}]}], " ", "+", " ", 
+        RowBox[{"2.4051782603611133*^12", "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Px", "^", "4"}], " ", "+", " ", 
+           RowBox[{"Py", "^", "4"}]}], ")"}]}]}], ")"}], "*", 
+      RowBox[{"\[Epsilon]", "^", "2"}]}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"solTens1pcAll", "[", 
+     RowBox[{"j_", ",", " ", "k_"}], "]"}], " ", ":=", " ", 
+    RowBox[{"ParallelTable", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"NSolve", "[", 
+           RowBox[{
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"D", "[", 
+                RowBox[{
+                 RowBox[{"fitUniversal", "[", 
+                  RowBox[{
+                  "T", ",", " ", "Px", ",", " ", "Py", ",", " ", "0.01", ",", 
+                   " ", "Ex", ",", " ", "Ey"}], "]"}], ",", " ", "Px"}], 
+                "]"}], " ", "==", " ", "0"}], ",", " ", "\[IndentingNewLine]", 
+              RowBox[{"D", "[", 
+               RowBox[{
+                RowBox[{"fitUniversal", "[", 
+                 RowBox[{
+                 "T", ",", " ", "Px", ",", " ", "Py", ",", " ", "0.01", ",", 
+                  " ", "Ex", ",", " ", "Ey"}], "]"}], ",", " ", "Py"}], "]"}],
+               ",", " ", "\[IndentingNewLine]", 
+              RowBox[{"Px", " ", "<", " ", "1"}], ",", " ", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Py", " ", "<", " ", "1"}], ",", " ", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Px", " ", ">=", " ", "0"}], ",", " ", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Py", " ", ">=", " ", "0"}]}], "}"}], ",", " ", "\n", 
+            "       ", 
+            RowBox[{"{", 
+             RowBox[{"Px", ",", " ", "Py"}], "}"}]}], "]"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"T", ",", " ", "k", ",", " ", "j", ",", " ", "\[Phi]"}], 
+           "}"}]}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"Ex", ",", " ", "0", ",", " ", 
+          RowBox[{"150", "*", 
+           RowBox[{"10", "^", "5"}]}], ",", " ", 
+          RowBox[{"\[Omega]", "*", 
+           RowBox[{"10", "^", "5"}]}]}], "}"}]}], "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Ey", ",", " ", "0", ",", " ", 
+        RowBox[{"150", "*", 
+         RowBox[{"10", "^", "5"}]}], ",", " ", 
+        RowBox[{"\[Omega]", "*", 
+         RowBox[{"10", "^", "5"}]}]}], "}"}]}], "]"}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"a", " ", "=", " ", 
+     RowBox[{"solTens1pcAll", "[", 
+      RowBox[{
+       RowBox[{"n", "+", "1"}], ",", " ", "n"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"\"\</home/john/projects/solTens1pc-\>\"", "<>", 
+       RowBox[{"ToString", "[", "n", "]"}], "<>", "\"\<.csv\>\""}], ",", "a", 
+      ",", "\"\<CSV\>\""}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "400", ",", "1"}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.646250183611768*^9, 3.646250204626889*^9}, {
+   3.646251378249094*^9, 3.646251383400545*^9}, {3.646251689508562*^9, 
+   3.646251693955147*^9}, {3.6462518093330507`*^9, 3.6462518308826027`*^9}, 
+   3.646251971002849*^9, {3.64625211005408*^9, 3.64625212727737*^9}, {
+   3.646252160365642*^9, 3.646252188820016*^9}, {3.646252656869958*^9, 
+   3.64625271519418*^9}, {3.646252765671032*^9, 3.646252768421667*^9}, {
+   3.6462538387928553`*^9, 3.6462538593038588`*^9}, {3.646257055289122*^9, 
+   3.646257058109235*^9}, {3.646257122442122*^9, 3.646257124900115*^9}, {
+   3.646257172023191*^9, 3.646257214325556*^9}, {3.6462572469685783`*^9, 
+   3.6462572476619873`*^9}},
+ FormatType->"InputForm"]
+},
+WindowSize->{1855, 1056},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[400, 13, 6635, 165, 321, "Input"]
+}
+]
+*)
+

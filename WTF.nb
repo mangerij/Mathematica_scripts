@@ -1,0 +1,445 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14569,        436]
+NotebookOptionsPosition[     13957,        412]
+NotebookOutlinePosition[     14314,        428]
+CellTagsIndexPosition[     14271,        425]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6660298985851393`*^9, 3.6660299134456453`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f6", "[", 
+   RowBox[{
+   "Px_", ",", "Py_", ",", "Pz_", ",", "\[Alpha]1_", ",", "\[Alpha]11_", ",", 
+    "\[Alpha]12_", ",", "\[Alpha]111_", ",", "\[Alpha]112_", ",", 
+    "\[Alpha]123_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"\[Alpha]1", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "2"], "+", 
+      SuperscriptBox["Py", "2"], "+", 
+      SuperscriptBox["Pz", "2"]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]11", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "4"], "+", 
+      SuperscriptBox["Py", "4"], "+", 
+      SuperscriptBox["Pz", "4"]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]12", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Px", "2"], 
+       SuperscriptBox["Py", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["Py", 
+        RowBox[{"2", " "}]], 
+       SuperscriptBox["Pz", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["Px", "2"], 
+       SuperscriptBox["Pz", "2"]}]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]111", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "6"], "+", 
+      SuperscriptBox["Py", "6"], "+", 
+      SuperscriptBox["Pz", "6"]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]112", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Px", "2"], 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Py", "4"], "+", 
+         SuperscriptBox["Pz", "4"]}], ")"}]}], "+", 
+      RowBox[{
+       SuperscriptBox["Py", "2"], 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "4"], "+", 
+         SuperscriptBox["Pz", "4"]}], ")"}]}], "+", 
+      RowBox[{
+       SuperscriptBox["Pz", "2"], 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "4"], "+", 
+         SuperscriptBox["Py", "4"]}], ")"}]}]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]123", " ", 
+    SuperscriptBox["Px", "2"], 
+    SuperscriptBox["Py", "2"], 
+    SuperscriptBox["Pz", "2"]}]}]}]], "Input",
+ CellChangeTimes->{{3.666029755723179*^9, 3.666029762108357*^9}, {
+   3.6660297968302307`*^9, 3.666029809325173*^9}, {3.666029844287013*^9, 
+   3.666030004087895*^9}, 3.6660305520544167`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f6BTO", "[", 
+   RowBox[{"Px_", ",", "Py_", ",", "Pz_", ",", "T_"}], "]"}], ":=", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"f6", "[", 
+    RowBox[{"Px", ",", "Py", ",", "Pz", ",", 
+     RowBox[{"3.34", "*", 
+      RowBox[{"(", 
+       RowBox[{"T", "-", "381"}], ")"}], "*", 
+      SuperscriptBox["10", "5"]}], ",", 
+     RowBox[{
+      SuperscriptBox["10", "6"], "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"4.69", "*", 
+         RowBox[{"(", 
+          RowBox[{"T", "-", "393"}], ")"}]}], "-", "202"}], ")"}]}], ",", 
+     RowBox[{"3.23", "*", 
+      SuperscriptBox["10", "8"]}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "5.52"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"T", "-", "393"}], ")"}]}], " ", "+", " ", "276"}], ")"}], 
+      "*", 
+      SuperscriptBox["10", "7"]}], ",", 
+     RowBox[{"4.47", "*", 
+      SuperscriptBox["10", "9"]}], ",", 
+     RowBox[{"4.919", "*", 
+      SuperscriptBox["10", "9"]}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6660300066870127`*^9, 3.66603012527118*^9}, {
+  3.666030553828945*^9, 3.666030557108676*^9}, {3.666032931743743*^9, 
+  3.666032932427764*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"WRONGf6BTO", "[", 
+   RowBox[{"Px_", ",", "Py_", ",", "Pz_", ",", "T_"}], "]"}], ":=", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"f6", "[", 
+    RowBox[{"Px", ",", "Py", ",", "Pz", ",", 
+     RowBox[{"3.34", "*", 
+      RowBox[{"(", 
+       RowBox[{"T", "-", "381"}], ")"}], "*", 
+      SuperscriptBox["10", "5"]}], ",", 
+     RowBox[{
+      SuperscriptBox["10", "6"], "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"4.69", "*", 
+         RowBox[{"(", 
+          RowBox[{"T", "-", "393"}], ")"}]}], "-", "202"}], ")"}]}], ",", 
+     RowBox[{"3.23", "*", 
+      SuperscriptBox["10", "8"]}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "5.52"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"T", "-", "120"}], ")"}]}], " ", "+", " ", "276"}], ")"}], 
+      "*", 
+      SuperscriptBox["10", "7"]}], ",", 
+     RowBox[{"4.47", "*", 
+      SuperscriptBox["10", "9"]}], ",", 
+     RowBox[{"4.919", "*", 
+      SuperscriptBox["10", "9"]}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.666045362184404*^9, 3.6660453653461514`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f6PTO", "[", 
+   RowBox[{"Px_", ",", "Py_", ",", "Pz_", ",", "T_"}], "]"}], ":=", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"f6", "[", 
+    RowBox[{"Px", ",", "Py", ",", "Pz", ",", 
+     RowBox[{"3.8", "*", 
+      RowBox[{"(", 
+       RowBox[{"T", "-", "752"}], ")"}], "*", 
+      SuperscriptBox["10", "5"]}], ",", 
+     RowBox[{
+      SuperscriptBox["10", "6"], "*", 
+      RowBox[{"(", 
+       RowBox[{"-", "0.73"}], ")"}]}], ",", 
+     RowBox[{"7.5", "*", 
+      SuperscriptBox["10", "8"]}], ",", 
+     RowBox[{
+      RowBox[{"(", "2.6", ")"}], "*", 
+      SuperscriptBox["10", "8"]}], ",", 
+     RowBox[{"6.1", "*", 
+      SuperscriptBox["10", "8"]}], ",", 
+     RowBox[{
+      RowBox[{"-", "37"}], "*", 
+      SuperscriptBox["10", "8"]}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.66603013322449*^9, 3.666030214271811*^9}, {
+  3.666030554847575*^9, 3.666030558167961*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f8", "[", 
+   RowBox[{
+   "Px_", ",", "Py_", ",", "Pz_", ",", "\[Alpha]1_", ",", "\[Alpha]11_", ",", 
+    "\[Alpha]12_", ",", "\[Alpha]111_", ",", "\[Alpha]112_", ",", 
+    "\[Alpha]123_", ",", "\[Alpha]1111_", ",", "\[Alpha]1112_", ",", 
+    "\[Alpha]1122_", ",", "\[Alpha]1123_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"\[Alpha]1", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "2"], "+", 
+      SuperscriptBox["Py", "2"], "+", 
+      SuperscriptBox["Pz", "2"]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]11", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "4"], "+", 
+      SuperscriptBox["Py", "4"], "+", 
+      SuperscriptBox["Pz", "4"]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]12", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Px", "2"], 
+       SuperscriptBox["Py", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["Py", 
+        RowBox[{"2", " "}]], 
+       SuperscriptBox["Pz", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["Px", "2"], 
+       SuperscriptBox["Pz", "2"]}]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]111", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "6"], "+", 
+      SuperscriptBox["Py", "6"], "+", 
+      SuperscriptBox["Pz", "6"]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]112", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Px", "2"], 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Py", "4"], "+", 
+         SuperscriptBox["Pz", "4"]}], ")"}]}], "+", 
+      RowBox[{
+       SuperscriptBox["Py", "2"], 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "4"], "+", 
+         SuperscriptBox["Pz", "4"]}], ")"}]}], "+", 
+      RowBox[{
+       SuperscriptBox["Pz", "2"], 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "4"], "+", 
+         SuperscriptBox["Py", "4"]}], ")"}]}]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]123", " ", 
+    SuperscriptBox["Px", "2"], 
+    SuperscriptBox["Py", "2"], 
+    SuperscriptBox["Pz", "2"]}], "+", 
+   RowBox[{"\[Alpha]1111", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "8"], "+", 
+      SuperscriptBox["Py", "8"], "+", 
+      SuperscriptBox["Pz", "8"]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]1112", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Px", "6"], 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Py", "2"], "+", 
+         SuperscriptBox["Pz", "2"]}], ")"}]}], "+", 
+      RowBox[{
+       SuperscriptBox["Py", "6"], 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "2"], "+", 
+         SuperscriptBox["Pz", "2"]}], ")"}]}], "+", 
+      RowBox[{
+       SuperscriptBox["Pz", "6"], 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "2"], "+", 
+         SuperscriptBox["Py", "2"]}], ")"}]}]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]1122", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Px", "4"], 
+       SuperscriptBox["Py", "4"]}], "+", 
+      RowBox[{
+       SuperscriptBox["Py", "4"], 
+       SuperscriptBox["Pz", "4"]}], "+", 
+      RowBox[{
+       SuperscriptBox["Px", "4"], 
+       SuperscriptBox["Pz", "4"]}]}], ")"}]}], "+", 
+   RowBox[{"\[Alpha]1123", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Px", "4"], 
+       SuperscriptBox["Py", "2"], 
+       SuperscriptBox["Pz", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["Px", "2"], 
+       SuperscriptBox["Py", "4"], 
+       SuperscriptBox["Pz", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["Px", "2"], 
+       SuperscriptBox["Py", "2"], 
+       SuperscriptBox["Pz", "4"]}]}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6660305619626617`*^9, 3.666030728524983*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f8BTO", "[", 
+   RowBox[{"Px_", ",", "Py_", ",", "Pz_", ",", "T_"}], "]"}], ":=", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"f8", "[", 
+    RowBox[{"Px", ",", "Py", ",", "Pz", ",", 
+     RowBox[{"4.124", "*", 
+      RowBox[{"(", 
+       RowBox[{"T", "-", "388"}], ")"}], "*", 
+      SuperscriptBox["10", "5"]}], ",", 
+     RowBox[{
+      RowBox[{"-", "209.7"}], "*", 
+      SuperscriptBox["10", "6"]}], ",", 
+     RowBox[{"7.974", "*", 
+      SuperscriptBox["10", "8"]}], ",", 
+     RowBox[{"129.4", "*", 
+      SuperscriptBox["10", "7"]}], ",", 
+     RowBox[{
+      RowBox[{"-", "1.950"}], "*", 
+      SuperscriptBox["10", "9"]}], ",", 
+     RowBox[{
+      RowBox[{"-", "2.5009"}], "*", 
+      SuperscriptBox["10", "9"]}], ",", 
+     RowBox[{"3.863", "*", 
+      SuperscriptBox["10", "10"]}], ",", 
+     RowBox[{"2.529", "*", 
+      SuperscriptBox["10", "10"]}], ",", 
+     RowBox[{"1.637", "*", 
+      SuperscriptBox["10", "10"]}], ",", 
+     RowBox[{"1.367", "*", 
+      SuperscriptBox["10", "10"]}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.666030736284143*^9, 3.666030844475165*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f6BTO", "[", 
+       RowBox[{"0", ",", "0", ",", "Pz", ",", "T"}], "]"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Pz", ",", "0", ",", "0.5"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"T", ",", "0", ",", "500"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6660302194168463`*^9, 3.666030307626554*^9}, {
+   3.6660303425530043`*^9, 3.666030440817123*^9}, {3.666030866391158*^9, 
+   3.66603087097526*^9}, {3.666030964263546*^9, 3.666031002138474*^9}, {
+   3.666031449751646*^9, 3.666031455688346*^9}, {3.666031492079605*^9, 
+   3.6660315003137407`*^9}, {3.66603161675408*^9, 3.6660316365933533`*^9}, {
+   3.6660317767374277`*^9, 3.666031805513322*^9}, 3.666031894670203*^9, {
+   3.6660319718091793`*^9, 3.666031974868206*^9}, {3.6660320203188334`*^9, 
+   3.6660320538827868`*^9}, {3.666032087028214*^9, 3.666032113790771*^9}, {
+   3.666032243077414*^9, 3.6660322452086697`*^9}, {3.666032332164649*^9, 
+   3.666032335625773*^9}, {3.66603237426182*^9, 3.666032387874358*^9}, {
+   3.666032947256669*^9, 3.6660329519884787`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`T$$ = 336.5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`T$$], 0, 500}}, Typeset`size$$ = {720., {201., 222.}},
+     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`T$58268$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`T$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`T$$, $CellContext`T$58268$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`f6BTO[
+         0, 0, $CellContext`Pz, $CellContext`T$$]}, {$CellContext`Pz, 0, 
+         0.5}], "Specifications" :> {{$CellContext`T$$, 0, 500}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{806., {280., 292.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.6660323345202923`*^9, 3.666032336022545*^9}, {
+  3.66603237514872*^9, 3.666032388311873*^9}, {3.6660329445989513`*^9, 
+  3.666032952453228*^9}}]
+}, Open  ]]
+},
+WindowSize->{1855, 1056},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->2.,
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 146, 2, 61, "Input"],
+Cell[707, 24, 2131, 66, 152, "Input"],
+Cell[2841, 92, 1221, 35, 152, "Input"],
+Cell[4065, 129, 1129, 33, 152, "Input"],
+Cell[5197, 164, 922, 26, 107, "Input"],
+Cell[6122, 192, 3707, 119, 242, "Input"],
+Cell[9832, 313, 1134, 32, 152, "Input"],
+Cell[CellGroupData[{
+Cell[10991, 349, 1170, 22, 61, "Input"],
+Cell[12164, 373, 1777, 36, 604, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

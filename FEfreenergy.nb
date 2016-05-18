@@ -1,0 +1,83 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1891,         73]
+NotebookOptionsPosition[      1514,         54]
+NotebookOutlinePosition[      1850,         69]
+CellTagsIndexPosition[      1807,         66]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["FE free energy density", "Subsection",
+ CellChangeTimes->{{3.6417386504182253`*^9, 3.6417386549719343`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   SuperscriptBox[
+    RowBox[{"(", "0.1", ")"}], "2"], 
+   RowBox[{"8.85", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "12"}]], "66", "*", "8.85", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "12"}]]}]], 
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{"100", "*", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "9"}]]}], ")"}], "2"], "*", "10", "*", 
+  SuperscriptBox["10", 
+   RowBox[{"-", "9"}]]}]], "Input",
+ CellChangeTimes->{{3.641738232360979*^9, 3.641738255183022*^9}, {
+  3.641738293544742*^9, 3.641738298182975*^9}, {3.641738556324483*^9, 
+  3.641738564468961*^9}}],
+
+Cell[BoxData["0.00019345035145092613`"], "Output",
+ CellChangeTimes->{3.641738255662797*^9, 3.641738298499693*^9, 
+  3.641738565122943*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{483, Automatic}, {Automatic, 32}},
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 114, 1, 47, "Subsection"],
+Cell[CellGroupData[{
+Cell[719, 27, 625, 19, 60, "Input"],
+Cell[1347, 48, 139, 2, 32, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

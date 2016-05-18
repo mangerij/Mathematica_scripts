@@ -1,0 +1,534 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     22078,        525]
+NotebookOptionsPosition[     21379,        496]
+NotebookOutlinePosition[     21717,        511]
+CellTagsIndexPosition[     21674,        508]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"a", "=", " ", "\"\<Rainbow\>\""}], ";", 
+  RowBox[{"b", "=", " ", "300"}], ";", 
+  RowBox[{"q", "=", "250"}], ";", 
+  RowBox[{"plotFont", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"FontWeight", "\[Rule]", "\"\<Bold\>\""}], ",", 
+     RowBox[{"FontSize", "\[Rule]", "20"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.648487289675585*^9, {3.648487456530019*^9, 3.64848745677208*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fitUniversal", "[", 
+   RowBox[{
+   "T_", ",", "Px_", ",", "Py_", ",", "\[Epsilon]_", ",", "Ex_", ",", "Ey_"}],
+    "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "Ex"}], " ", "Px"}], "-", 
+   RowBox[{"Ey", " ", "Py"}], "+", 
+   RowBox[{"3.7309631540402794`*^9", " ", 
+    SuperscriptBox["Px", "2"], " ", 
+    SuperscriptBox["Py", "2"]}], "+", 
+   RowBox[{"1.7595573932168193`*^9", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "4"], "+", 
+      SuperscriptBox["Py", "4"]}], ")"}]}], "-", 
+   RowBox[{"6.50780144218582`*^8", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["Px", "4"], " ", 
+       SuperscriptBox["Py", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["Px", "2"], " ", 
+       SuperscriptBox["Py", "4"]}]}], ")"}]}], "-", 
+   RowBox[{"5.901102883438983`*^8", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "6"], "+", 
+      SuperscriptBox["Py", "6"]}], ")"}]}], "+", 
+   RowBox[{"1.2712934148987874`*^6", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Px", "2"], "+", 
+      SuperscriptBox["Py", "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "120"}], "+", "T"}], ")"}]}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2.510675608323508`*^11"}], " ", 
+       SuperscriptBox["Px", "2"], " ", 
+       SuperscriptBox["Py", "2"]}], "-", 
+      RowBox[{"4.17646670065401`*^9", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "2"], "+", 
+         SuperscriptBox["Py", "2"]}], ")"}]}], "-", 
+      RowBox[{"3.685708175223359`*^10", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "4"], "+", 
+         SuperscriptBox["Py", "4"]}], ")"}]}]}], ")"}], " ", "\[Epsilon]"}], 
+   "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"6.486661547893217`*^12", " ", 
+       SuperscriptBox["Px", "2"], " ", 
+       SuperscriptBox["Py", "2"]}], "+", 
+      RowBox[{"1.2129917521706586`*^11", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "2"], "+", 
+         SuperscriptBox["Py", "2"]}], ")"}]}], "+", 
+      RowBox[{"2.4051782603611133`*^12", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["Px", "4"], "+", 
+         SuperscriptBox["Py", "4"]}], ")"}]}]}], ")"}], " ", 
+    SuperscriptBox["\[Epsilon]", "2"]}]}]}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Export strain-sweep movie:", "Subsection",
+ CellChangeTimes->{{3.648574547591382*^9, 3.648574562585763*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"m", "=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Rasterize", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Plot3D", "[", 
+         RowBox[{
+          RowBox[{"fitUniversal", "[", 
+           RowBox[{
+           "1", ",", "Px", ",", "Py", ",", "\[Epsilon]", ",", "0", ",", "0"}],
+            "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"Px", ",", "0", ",", "0.35"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"Py", ",", "0", ",", "0.35"}], "}"}], ",", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{"Contours", "\[Rule]", "150"}], ","}], "*)"}], 
+          RowBox[{"ImageSize", "\[Rule]", "600"}], ",", 
+          RowBox[{"BaseStyle", "\[Rule]", "plotFont"}], ",", 
+          RowBox[{"AxesLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(P\), \(x\)]\) \
+[C/\!\(\*SuperscriptBox[\(m\), \(2\)]\)]\>\"", ",", 
+             "\"\<\!\(\*SubscriptBox[\(P\), \(y\)]\) [C/\!\(\*SuperscriptBox[\
+\(m\), \(2\)]\)]\>\""}], "}"}]}], ",", 
+          RowBox[{"PlotLabel", " ", "\[Rule]", 
+           RowBox[{"\"\<\[Epsilon] = \>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"100", "*", "\[Epsilon]"}], "]"}], "<>", "\"\<%\>\""}]}],
+           ",", 
+          RowBox[{"ColorFunction", "\[Rule]", 
+           RowBox[{"ColorData", "[", "\"\<Rainbow\>\"", "]"}]}]}], "]"}], ",", 
+        RowBox[{"ContourPlot", "[", 
+         RowBox[{
+          RowBox[{"fitUniversal", "[", 
+           RowBox[{
+           "1", ",", "Px", ",", "Py", ",", "\[Epsilon]", ",", "0", ",", "0"}],
+            "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"Px", ",", "0", ",", "0.35"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"Py", ",", "0", ",", "0.35"}], "}"}], ",", 
+          RowBox[{"Contours", "\[Rule]", "150"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "600"}], ",", 
+          RowBox[{"BaseStyle", "\[Rule]", "plotFont"}], ",", 
+          RowBox[{"FrameLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(P\), \(x\)]\) \
+[C/\!\(\*SuperscriptBox[\(m\), \(2\)]\)]\>\"", ",", 
+             "\"\<\!\(\*SubscriptBox[\(P\), \(y\)]\) [C/\!\(\*SuperscriptBox[\
+\(m\), \(2\)]\)]\>\""}], "}"}]}], ",", 
+          RowBox[{"PlotLabel", " ", "\[Rule]", 
+           RowBox[{"\"\<\[Epsilon] = \>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"100", "*", "\[Epsilon]"}], "]"}], "<>", "\"\<%\>\""}]}],
+           ",", 
+          RowBox[{"ColorFunction", "\[Rule]", 
+           RowBox[{"ColorData", "[", "\"\<Rainbow\>\"", "]"}]}], ",", 
+          RowBox[{"PlotLegends", "\[Rule]", "True"}]}], "]"}]}], "}"}], "]"}],
+      ",", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"T", ",", "1", ",", "180", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Ex", ",", "0", ",", 
+         RowBox[{"150", "*", 
+          SuperscriptBox["10", "5"]}], ",", 
+         RowBox[{"5", "*", 
+          SuperscriptBox["10", "5"]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Ey", ",", "0", ",", 
+         RowBox[{"150", "*", 
+          SuperscriptBox["10", "5"]}], ",", 
+         RowBox[{"5", "*", 
+          SuperscriptBox["10", "5"]}]}], "}"}], ","}], "*)"}], 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Epsilon]", ",", "0.02"}], "}"}], ",", 
+       RowBox[{"-", "0.02"}], ",", "0.02"}], "}"}], ",", 
+     RowBox[{"SynchronousUpdating", "\[Rule]", "False"}], ",", 
+     RowBox[{"AutorunSequencing", "->", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "20"}], "}"}], "}"}]}]}], "]"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "need", " ", "to", " ", "use", " ", "ImageReflect", " ", "since", " ", 
+    "Linux", " ", "does", " ", "not", " ", "have", " ", "the", " ", 
+    "Quicktime", " ", "library", " ", "that", " ", "Mathematica", " ", 
+    "relies", " ", "on", " ", "but", " ", "Google", " ", "automatically", " ",
+     "uses", " ", "ImageReflect", " ", "for", " ", "some", " ", "reason", " ",
+     "on", " ", "the", " ", "video", " ", "when", " ", "uploaded", " ", "to", 
+    " ", 
+    RowBox[{"YouTube", ".", " ", "Perhaps"}], " ", "it", " ", "senses", " ", 
+    "the", " ", "video", " ", "is", " ", "upside", " ", "down", " ", "and", 
+    " ", "reorients", " ", 
+    RowBox[{"it", "?"}]}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6484860736358624`*^9, 3.648486315414742*^9}, {
+   3.648486523377983*^9, 3.648486532432643*^9}, {3.648487221162579*^9, 
+   3.648487233823162*^9}, {3.648487264781184*^9, 3.648487284144342*^9}, {
+   3.648487364382044*^9, 3.6484874062656727`*^9}, {3.648487445919503*^9, 
+   3.648487446632218*^9}, {3.648487517900776*^9, 3.6484875298748407`*^9}, {
+   3.6484877840860357`*^9, 3.648487796319233*^9}, {3.648487961689588*^9, 
+   3.648487993788364*^9}, {3.648488175772393*^9, 3.6484881927888517`*^9}, {
+   3.648488255075588*^9, 3.648488292347959*^9}, {3.648488333457646*^9, 
+   3.6484883370450697`*^9}, 3.6484884666231823`*^9, {3.648488542856032*^9, 
+   3.6484885545013857`*^9}, {3.648488606106503*^9, 3.648488673377325*^9}, {
+   3.64848873403096*^9, 3.648488740905649*^9}, {3.6484887821224537`*^9, 
+   3.648488821600883*^9}, {3.648488884248378*^9, 3.648488892175066*^9}, {
+   3.6484889359848557`*^9, 3.648489002169072*^9}, {3.648489527441927*^9, 
+   3.648489543067214*^9}, {3.648489597455143*^9, 3.6484895995431147`*^9}, {
+   3.648489638344777*^9, 3.648489674227078*^9}, {3.648490489763867*^9, 
+   3.648490494659491*^9}, {3.648491562224546*^9, 3.648491582531653*^9}, {
+   3.64849167210419*^9, 3.648491711663333*^9}, {3.648491743839419*^9, 
+   3.648491761270775*^9}, {3.648498748498786*^9, 3.6484987543425407`*^9}, {
+   3.648498874762426*^9, 3.648498884166794*^9}, {3.6484989208279333`*^9, 
+   3.648498929355043*^9}, {3.6484992203170156`*^9, 3.6484992278977413`*^9}, {
+   3.64849957298132*^9, 3.648499594214658*^9}, {3.648500089380321*^9, 
+   3.6485002162437973`*^9}, {3.6485002601099358`*^9, 
+   3.6485002756283083`*^9}, {3.648500382684304*^9, 3.648500406696334*^9}, {
+   3.6485004605163717`*^9, 3.6485005850863523`*^9}, {3.648500768015843*^9, 
+   3.648500812910788*^9}, {3.648500975154694*^9, 3.6485009785466146`*^9}, {
+   3.648501381704496*^9, 3.6485013865690527`*^9}, {3.648501743215434*^9, 
+   3.648501781877151*^9}, {3.648503038040181*^9, 3.648503059050926*^9}, {
+   3.648504512349743*^9, 3.6485045247711363`*^9}, {3.648505152207774*^9, 
+   3.648505168965755*^9}, {3.648505460204341*^9, 3.648505498752996*^9}, {
+   3.648506965552126*^9, 3.6485069993053427`*^9}, {3.6485082332477283`*^9, 
+   3.6485082396477413`*^9}, 3.648574145597224*^9, {3.648574494590294*^9, 
+   3.6485745254476643`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\</home/john/moviePlot3DandContour.avi\>\"", ",", "m", ",", 
+   RowBox[{"\"\<FrameRate\>\"", "\[Rule]", "12"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.648487811499424*^9, 3.6484878244340687`*^9}, {
+   3.6484890970462513`*^9, 3.648489105551032*^9}, {3.648489145823447*^9, 
+   3.648489151102579*^9}, {3.648489197725109*^9, 3.6484892023833113`*^9}, 
+   3.648489251279581*^9, {3.648489551333233*^9, 3.6484895545227423`*^9}, {
+   3.648490500182034*^9, 3.6484905025544643`*^9}, {3.648500863996695*^9, 
+   3.648500864269122*^9}, {3.64850179601877*^9, 3.648501799413147*^9}, {
+   3.648503068473276*^9, 3.6485030686185627`*^9}, {3.648504501594891*^9, 
+   3.648504509894026*^9}, {3.648505147899785*^9, 3.6485051498362827`*^9}, {
+   3.648505508866675*^9, 3.6485055090182257`*^9}, {3.648507003926344*^9, 
+   3.6485070054135313`*^9}, {3.648508255211418*^9, 3.648508256322633*^9}}],
+
+Cell[BoxData["\<\"/home/john/moviePlot3DandContour.avi\"\>"], "Output",
+ CellChangeTimes->{
+  3.648488073507902*^9, 3.648488264437743*^9, 3.6484884191270027`*^9, 
+   3.648488540666978*^9, {3.648489134644093*^9, 3.648489157621718*^9}, 
+   3.648489207486618*^9, 3.6484892376087503`*^9, 3.648489320800769*^9, 
+   3.64848956695084*^9, 3.6484897252274437`*^9, 3.648490978761631*^9, 
+   3.64849996591223*^9, 3.6485011974266853`*^9, 3.6485015580061893`*^9, 
+   3.648502375375784*^9, 3.648503429883823*^9, 3.648505115151157*^9, 
+   3.648505241894844*^9, 3.648505411228074*^9, 3.648506252369982*^9, 
+   3.648507320920649*^9, 3.648509091550393*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Animation:", "Subsection",
+ CellChangeTimes->{{3.6485745528577423`*^9, 3.648574556219655*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Rasterize", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Plot3D", "[", 
+       RowBox[{
+        RowBox[{"fitUniversal", "[", 
+         RowBox[{
+         "T", ",", "Px", ",", "Py", ",", "\[Epsilon]", ",", "Ex", ",", "Ey"}],
+          "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Px", ",", "0", ",", "0.35"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Py", ",", "0", ",", "0.35"}], "}"}], ",", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Contours", "\[Rule]", "150"}], ","}], "*)"}], 
+        RowBox[{"ImageSize", "\[Rule]", "600"}], ",", 
+        RowBox[{"BaseStyle", "\[Rule]", "plotFont"}], ",", 
+        RowBox[{"AxesLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<\!\(\*SubscriptBox[\(P\), \(x\)]\) [C/\!\(\*SuperscriptBox[\(m\
+\), \(2\)]\)]\>\"", ",", 
+           "\"\<\!\(\*SubscriptBox[\(P\), \(y\)]\) \
+[C/\!\(\*SuperscriptBox[\(m\), \(2\)]\)]\>\""}], "}"}]}], ",", 
+        RowBox[{"PlotLabel", " ", "\[Rule]", 
+         RowBox[{"\"\<\[Epsilon] = \>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"100", "*", "\[Epsilon]"}], "]"}], "<>", "\"\<%, T = \>\"",
+           "<>", 
+          RowBox[{"ToString", "[", "T", "]"}], "<>", 
+          "\"\< K, \n\!\(\*SubscriptBox[\(E\), \(x\)]\) = \>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            SuperscriptBox["10", 
+             RowBox[{"-", "5"}]], "Ex"}], "]"}], "<>", 
+          "\"\< kV/cm, \!\(\*SubscriptBox[\(E\), \(y\)]\) =\>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            SuperscriptBox["10", 
+             RowBox[{"-", "5"}]], "Ey"}], "]"}], "<>", "\"\< kV/cm\>\""}]}], 
+        ",", 
+        RowBox[{"ColorFunction", "\[Rule]", 
+         RowBox[{"ColorData", "[", "\"\<Rainbow\>\"", "]"}]}]}], "]"}], ",", 
+      RowBox[{"ContourPlot", "[", 
+       RowBox[{
+        RowBox[{"fitUniversal", "[", 
+         RowBox[{
+         "T", ",", "Px", ",", "Py", ",", "\[Epsilon]", ",", "Ex", ",", "Ey"}],
+          "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Px", ",", "0", ",", "0.35"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Py", ",", "0", ",", "0.35"}], "}"}], ",", 
+        RowBox[{"Contours", "\[Rule]", "150"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "600"}], ",", 
+        RowBox[{"BaseStyle", "\[Rule]", "plotFont"}], ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<\!\(\*SubscriptBox[\(P\), \(x\)]\) [C/\!\(\*SuperscriptBox[\(m\
+\), \(2\)]\)]\>\"", ",", 
+           "\"\<\!\(\*SubscriptBox[\(P\), \(y\)]\) \
+[C/\!\(\*SuperscriptBox[\(m\), \(2\)]\)]\>\""}], "}"}]}], ",", 
+        RowBox[{"PlotLabel", " ", "\[Rule]", 
+         RowBox[{"\"\<\[Epsilon] = \>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"100", "*", "\[Epsilon]"}], "]"}], "<>", "\"\<%, T = \>\"",
+           "<>", 
+          RowBox[{"ToString", "[", "T", "]"}], "<>", 
+          "\"\< K, \n\!\(\*SubscriptBox[\(E\), \(x\)]\) = \>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            SuperscriptBox["10", 
+             RowBox[{"-", "5"}]], "Ex"}], "]"}], "<>", 
+          "\"\< kV/cm, \!\(\*SubscriptBox[\(E\), \(y\)]\) =\>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            SuperscriptBox["10", 
+             RowBox[{"-", "5"}]], "Ey"}], "]"}], "<>", "\"\< kV/cm\>\""}]}], 
+        ",", 
+        RowBox[{"ColorFunction", "\[Rule]", 
+         RowBox[{"ColorData", "[", "\"\<Rainbow\>\"", "]"}]}], ",", 
+        RowBox[{"PlotLegends", "\[Rule]", "True"}]}], "]"}]}], "}"}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"T", ",", "1", ",", "180", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"Ex", ",", "0", ",", 
+     RowBox[{"30", "*", 
+      SuperscriptBox["10", "5"]}], ",", 
+     RowBox[{"0.5", "*", 
+      SuperscriptBox["10", "5"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"Ey", ",", "0", ",", 
+     RowBox[{"30", "*", 
+      SuperscriptBox["10", "5"]}], ",", 
+     RowBox[{"0.5", "*", 
+      SuperscriptBox["10", "5"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Epsilon]", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "0.02"}], ",", "0.02"}], "}"}], ",", 
+   RowBox[{"SynchronousUpdating", "\[Rule]", "False"}], ",", 
+   RowBox[{"AutorunSequencing", "->", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "20"}], "}"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.648574142795163*^9, 3.648574166244733*^9}, {
+  3.648574211037272*^9, 3.6485742237087717`*^9}, {3.648574290973378*^9, 
+  3.648574479939888*^9}, {3.648574590562381*^9, 3.648574599319178*^9}, {
+  3.6502897810209923`*^9, 3.650289781654929*^9}, {3.653386199126992*^9, 
+  3.653386207453499*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`Ex$$ = 50000., $CellContext`Ey$$ = 
+    100000., $CellContext`T$$ = 20, $CellContext`\[Epsilon]$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`T$$], 1, 180, 1}, {
+      Hold[$CellContext`Ex$$], 0, 3000000, 50000.}, {
+      Hold[$CellContext`Ey$$], 0, 3000000, 50000.}, {{
+       Hold[$CellContext`\[Epsilon]$$], 0}, -0.02, 0.02}}, Typeset`size$$ = {
+    1323., {316., 321.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`T$1447$$ = 
+    0, $CellContext`Ex$1448$$ = 0, $CellContext`Ey$1449$$ = 
+    0, $CellContext`\[Epsilon]$1450$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`Ex$$ = 0, $CellContext`Ey$$ = 
+        0, $CellContext`T$$ = 1, $CellContext`\[Epsilon]$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`T$$, $CellContext`T$1447$$, 0], 
+        Hold[$CellContext`Ex$$, $CellContext`Ex$1448$$, 0], 
+        Hold[$CellContext`Ey$$, $CellContext`Ey$1449$$, 0], 
+        Hold[$CellContext`\[Epsilon]$$, $CellContext`\[Epsilon]$1450$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Rasterize[{
+         Plot3D[
+          $CellContext`fitUniversal[$CellContext`T$$, $CellContext`Px, \
+$CellContext`Py, $CellContext`\[Epsilon]$$, $CellContext`Ex$$, \
+$CellContext`Ey$$], {$CellContext`Px, 0, 0.35}, {$CellContext`Py, 0, 0.35}, 
+          ImageSize -> 600, BaseStyle -> $CellContext`plotFont, 
+          AxesLabel -> {
+           "\!\(\*SubscriptBox[\(P\), \(x\)]\) [C/\!\(\*SuperscriptBox[\(m\), \
+\(2\)]\)]", 
+            "\!\(\*SubscriptBox[\(P\), \(y\)]\) \
+[C/\!\(\*SuperscriptBox[\(m\), \(2\)]\)]"}, PlotLabel -> 
+          StringJoin["\[Epsilon] = ", 
+            ToString[100 $CellContext`\[Epsilon]$$], "%, T = ", 
+            ToString[$CellContext`T$$], 
+            " K, \n\!\(\*SubscriptBox[\(E\), \(x\)]\) = ", 
+            ToString[10^(-5) $CellContext`Ex$$], 
+            " kV/cm, \!\(\*SubscriptBox[\(E\), \(y\)]\) =", 
+            ToString[10^(-5) $CellContext`Ey$$], " kV/cm"], ColorFunction -> 
+          ColorData["Rainbow"]], 
+         ContourPlot[
+          $CellContext`fitUniversal[$CellContext`T$$, $CellContext`Px, \
+$CellContext`Py, $CellContext`\[Epsilon]$$, $CellContext`Ex$$, \
+$CellContext`Ey$$], {$CellContext`Px, 0, 0.35}, {$CellContext`Py, 0, 0.35}, 
+          Contours -> 150, ImageSize -> 600, 
+          BaseStyle -> $CellContext`plotFont, 
+          FrameLabel -> {
+           "\!\(\*SubscriptBox[\(P\), \(x\)]\) [C/\!\(\*SuperscriptBox[\(m\), \
+\(2\)]\)]", 
+            "\!\(\*SubscriptBox[\(P\), \(y\)]\) \
+[C/\!\(\*SuperscriptBox[\(m\), \(2\)]\)]"}, PlotLabel -> 
+          StringJoin["\[Epsilon] = ", 
+            ToString[100 $CellContext`\[Epsilon]$$], "%, T = ", 
+            ToString[$CellContext`T$$], 
+            " K, \n\!\(\*SubscriptBox[\(E\), \(x\)]\) = ", 
+            ToString[10^(-5) $CellContext`Ex$$], 
+            " kV/cm, \!\(\*SubscriptBox[\(E\), \(y\)]\) =", 
+            ToString[10^(-5) $CellContext`Ey$$], " kV/cm"], ColorFunction -> 
+          ColorData["Rainbow"], PlotLegends -> True]}], 
+      "Specifications" :> {{$CellContext`T$$, 1, 180, 1}, {$CellContext`Ex$$, 
+         0, 3000000, 50000.}, {$CellContext`Ey$$, 0, 3000000, 
+         50000.}, {{$CellContext`\[Epsilon]$$, 0}, -0.02, 0.02}}, 
+      "Options" :> {
+       SynchronousUpdating -> False, AutorunSequencing -> {{1, 20}}}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1370., {398., 405.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.650289811638081*^9, {3.653386189813582*^9, 3.653386208173196*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1855, 1056},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 432, 11, 32, "Input"],
+Cell[993, 33, 2421, 74, 87, "Input"],
+Cell[CellGroupData[{
+Cell[3439, 111, 114, 1, 45, "Subsection"],
+Cell[3556, 114, 6758, 136, 223, "Input"],
+Cell[CellGroupData[{
+Cell[10339, 254, 921, 13, 32, "Input"],
+Cell[11263, 269, 638, 9, 32, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11950, 284, 100, 1, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[12075, 289, 4838, 116, 204, "Input"],
+Cell[16916, 407, 4435, 85, 820, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

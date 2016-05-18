@@ -1,0 +1,250 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8367,        241]
+NotebookOptionsPosition[      7978,        224]
+NotebookOutlinePosition[      8314,        239]
+CellTagsIndexPosition[      8271,        236]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"data", " ", "=", " ", 
+    RowBox[{"ParallelTable", "[", 
+     RowBox[{
+      RowBox[{"Import", "[", 
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"\"\</home/john/projectz/ECE/solTens1pc-\>\"", ",", " ", 
+          RowBox[{"ToString", "[", "n", "]"}], ",", " ", "\"\<.csv\>\""}], 
+         "]"}], ",", " ", "\"\<CSV\>\""}], "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", " ", "1", ",", " ", "250"}], "}"}]}], "]"}]}], ";"}],
+   " "}]], "Input",
+ CellChangeTimes->{3.647045027140856*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataSol", " ", "=", " ", 
+    RowBox[{"ToExpression", "[", "data", "]"}]}], ";"}], " "}]], "Input",
+ CellChangeTimes->{3.647045027150111*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Phi]", " ", "=", " ", "1"}], ";", " ", 
+   RowBox[{"\[Omega]", " ", "=", " ", "1"}], ";", " ", 
+   RowBox[{"Temp", " ", "=", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"\[Phi]", "*", "k"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", " ", "0", ",", " ", "350"}], "}"}]}], "]"}]}], ";", 
+   " ", 
+   RowBox[{"appExfield", " ", "=", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{"h", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"h", ",", " ", "0", ",", " ", 
+        RowBox[{"120", "*", 
+         RowBox[{"10", "^", "5"}]}], ",", " ", 
+        RowBox[{"\[Omega]", "*", 
+         RowBox[{"10", "^", "5"}]}]}], "}"}]}], "]"}]}], ";", " ", 
+   RowBox[{"appEyfield", " ", "=", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{"h", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"h", ",", " ", "0", ",", " ", 
+        RowBox[{"120", "*", 
+         RowBox[{"10", "^", "5"}]}], ",", " ", 
+        RowBox[{"\[Omega]", "*", 
+         RowBox[{"10", "^", "5"}]}]}], "}"}]}], "]"}]}], ";"}], " "}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"fitUniversal", "[", 
+     RowBox[{
+     "T_", ",", " ", "Px_", ",", " ", "Py_", ",", " ", "\[Epsilon]_", ",", 
+      " ", "Ex_", ",", " ", "Ey_"}], "]"}], " ", ":=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"-", "Ex"}], ")"}], "*", "Px"}], " ", "-", " ", 
+     RowBox[{"Ey", "*", "Py"}], " ", "+", " ", 
+     RowBox[{"3.7309631540402794*^9", "*", 
+      RowBox[{"Px", "^", "2"}], "*", 
+      RowBox[{"Py", "^", "2"}]}], " ", "+", " ", 
+     RowBox[{"1.7595573932168193*^9", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Px", "^", "4"}], " ", "+", " ", 
+        RowBox[{"Py", "^", "4"}]}], ")"}]}], " ", "-", " ", 
+     RowBox[{"6.50780144218582*^8", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Px", "^", "4"}], "*", 
+         RowBox[{"Py", "^", "2"}]}], " ", "+", " ", 
+        RowBox[{
+         RowBox[{"Px", "^", "2"}], "*", 
+         RowBox[{"Py", "^", "4"}]}]}], ")"}]}], " ", "-", " ", "\n", "    ", 
+     RowBox[{"5.901102883438983*^8", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Px", "^", "6"}], " ", "+", " ", 
+        RowBox[{"Py", "^", "6"}]}], ")"}]}], " ", "+", " ", 
+     RowBox[{"1.2712934148987874*^6", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Px", "^", "2"}], " ", "+", " ", 
+        RowBox[{"Py", "^", "2"}]}], ")"}], "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "120"}], " ", "+", " ", "T"}], ")"}]}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "2.510675608323508*^11"}], "*", 
+         RowBox[{"Px", "^", "2"}], "*", 
+         RowBox[{"Py", "^", "2"}]}], " ", "-", " ", 
+        RowBox[{"4.17646670065401*^9", "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Px", "^", "2"}], " ", "+", " ", 
+           RowBox[{"Py", "^", "2"}]}], ")"}]}], " ", "-", " ", "\n", "      ", 
+        RowBox[{"3.685708175223359*^10", "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Px", "^", "4"}], " ", "+", " ", 
+           RowBox[{"Py", "^", "4"}]}], ")"}]}]}], ")"}], "*", "\[Epsilon]"}], 
+     " ", "+", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"6.486661547893217*^12", "*", 
+         RowBox[{"Px", "^", "2"}], "*", 
+         RowBox[{"Py", "^", "2"}]}], " ", "+", " ", 
+        RowBox[{"1.2129917521706586*^11", "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Px", "^", "2"}], " ", "+", " ", 
+           RowBox[{"Py", "^", "2"}]}], ")"}]}], " ", "+", " ", 
+        RowBox[{"2.4051782603611133*^12", "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Px", "^", "4"}], " ", "+", " ", 
+           RowBox[{"Py", "^", "4"}]}], ")"}]}]}], ")"}], "*", 
+      RowBox[{"\[Epsilon]", "^", "2"}]}]}]}], ";"}], " "}]}], "Input",
+ CellChangeTimes->{3.647044884227458*^9, 3.647045027160133*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"freeEnergyMinAllfieldTens1pc", "[", 
+     RowBox[{"j_", ",", " ", "l_"}], "]"}], " ", ":=", " ", 
+    RowBox[{"ParallelTable", "[", 
+     RowBox[{
+      RowBox[{"fitUniversal", "[", 
+       RowBox[{"k", ",", " ", 
+        RowBox[{"Px", " ", "/.", " ", 
+         RowBox[{
+          RowBox[{"dataSol", "[", 
+           RowBox[{"[", 
+            RowBox[{"k", ",", "j", ",", "l"}], "]"}], "]"}], "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "1", ",", "1"}], "]"}], "]"}]}], ",", " ", 
+        RowBox[{"Py", " ", "/.", " ", 
+         RowBox[{
+          RowBox[{"dataSol", "[", 
+           RowBox[{"[", 
+            RowBox[{"k", ",", "j", ",", "l"}], "]"}], "]"}], "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "1", ",", "2"}], "]"}], "]"}]}], ",", " ", 
+        "0.01", ",", " ", 
+        RowBox[{"appExfield", "[", 
+         RowBox[{"[", "j", "]"}], "]"}], ",", " ", 
+        RowBox[{"appEyfield", "[", 
+         RowBox[{"[", "l", "]"}], "]"}]}], "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", " ", "1", ",", " ", "250"}], "}"}]}], "]"}]}], ";"}],
+   " "}]], "Input",
+ CellChangeTimes->{{3.647044908064452*^9, 3.647044908407773*^9}, 
+   3.647045027177971*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"a", " ", "=", " ", 
+      RowBox[{"freeEnergyMinAllfieldTens1pc", "[", 
+       RowBox[{"j", ",", " ", "l"}], "]"}]}], ";", " ", 
+     RowBox[{"Export", "[", 
+      RowBox[{
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "\"\</home/john/projectz/ECE/datFreeEnergyMinAllfieldTens1pc-\>\"", 
+         ",", " ", 
+         RowBox[{"ToString", "[", "j", "]"}], ",", " ", "\"\<-\>\"", ",", " ", 
+         RowBox[{"ToString", "[", "l", "]"}], ",", " ", "\"\<.csv\>\""}], 
+        "]"}], ",", " ", "a", ",", " ", "\"\<CSV\>\""}], "]"}], ";"}], " ", 
+    ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"j", ",", " ", "1", ",", " ", "151", ",", " ", "1"}], "}"}], ",",
+     " ", "\n", "  ", 
+    RowBox[{"{", 
+     RowBox[{"l", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "}"}]}], 
+   "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"only", " ", "do", " ", "l"}], " ", "=", " ", 
+    RowBox[{"1", "\[Rule]", 
+     RowBox[{
+     "2", " ", "for", " ", "now", " ", "so", " ", "we", " ", "can", " ", 
+      "look", " ", "at", " ", "\[CapitalDelta]T", " ", "of", " ", "the", " ", 
+      "saddle", " ", "point"}]}]}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6470449027585993`*^9, 3.647044916765066*^9}, 
+   3.647045027192348*^9, {3.6471221066517267`*^9, 3.647122155813146*^9}, 
+   3.6471222383500757`*^9}]
+},
+WindowSize->{1871, 1080},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 573, 15, 32, "Input"],
+Cell[1134, 37, 188, 5, 32, "Input"],
+Cell[1325, 44, 3993, 107, 99, "Input"],
+Cell[5321, 153, 1258, 33, 32, "Input"],
+Cell[6582, 188, 1392, 34, 55, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
